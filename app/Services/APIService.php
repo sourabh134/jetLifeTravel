@@ -63,7 +63,8 @@ class APIService
         return $airports ?? [];
     }
 
-    public static function airlineList(){
+    public static function airlineList()
+    {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -91,7 +92,7 @@ class APIService
         return json_decode($response, true);
     }
 
-    public static function flightsearchoneway()
+    public static function flightsearchoneway($journeyType, $departure, $to, $from, $cabinClass, $adults, $children, $infantInLap)
     {
         $curl = curl_init();
 
@@ -108,20 +109,20 @@ class APIService
                 "user_id": "jetlifeglobal_testAPI",
                 "user_password": "jetlifeglobalTest@2025",
                 "access": "Test",
-                "ip_address": "122.161.49.156",
+                "ip_address": "122.161.52.193",
                 "requiredCurrency": "USD",
                 "journeyType": "OneWay",
                 "OriginDestinationInfo": [
                     {
-                        "departureDate": "2025-06-22",
-                        "airportOriginCode": "AMS",
-                        "airportDestinationCode": "LON"
+                        "departureDate": "'.$departure.'",
+                        "airportOriginCode": "'.$from.'",
+                        "airportDestinationCode": "'.$to.'"
                     }
                 ],
-                "class": "Economy",
-                "adults": 2,
-                "childs": 1,
-                "infants": 1
+                "class": "'.ucfirst(strtolower($cabinClass)).'",
+                "adults": '.$adults.',
+                "childs": '.$children.',
+                "infants": '.$infantInLap.'
             }',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json'
@@ -130,8 +131,9 @@ class APIService
 
         $response = curl_exec($curl);
         curl_close($curl);
+        // print_r($response);
+        // die;
         return json_decode($response, true);
-
     }
 
     public static function flightsearchreturn()
@@ -176,6 +178,5 @@ class APIService
         $response = curl_exec($curl);
         curl_close($curl);
         $airports = json_decode($response, true);
-
     }
 }

@@ -2990,7 +2990,12 @@
             e.preventDefault();
              // Get input values
             const fromInput = $('#formplace').val().trim();
+            const match = fromInput.match(/\((\w{3})\s-\s/);
+            const fromairportCode = match[1]; // "DEL"
+
             const toInput = $('#toplace').val().trim();
+            const matcht = toInput.match(/\((\w{3})\s-\s/);
+            const toairportCode = matcht[1]; // "DEL"
             const departureDate = $('#datepicker').val().trim(); // expected format: DD/MM/YYYY
             const cabinClass = $('.changecname').text().trim().toLowerCase();
             // Get passenger counts
@@ -3000,7 +3005,7 @@
             const passengerString = `children:${children > 0 ? `${children}` : '0'},adults:${adults},infantinlap:${infants > 0 ? `${infants}` : '0'}`;
             // Final URL
             const finalURL = `{{url('/Flights-Search')}}?flight-type=on&mode=search&trip=oneway` +
-                `&leg1=from:${encodeURIComponent(fromInput)},to:${encodeURIComponent(toInput)},departure:${departureDate},fromType:AIRPORT,toType:AIRPORT` +
+                `&leg1=from:${encodeURIComponent(fromairportCode)},to:${encodeURIComponent(toairportCode)},departure:${departureDate},fromType:AIRPORT,toType:AIRPORT` +
                 `&options=cabinclass:${cabinClass}` +
                 `&fromDate=${departureDate}` +
                 `&d1=${departureDate}` +

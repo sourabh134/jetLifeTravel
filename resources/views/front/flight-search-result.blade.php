@@ -59,19 +59,21 @@
                                             class="fas fa-globe"></i>Tours</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="hotels-tab" data-bs-toggle="tab"
-                                        data-bs-target="#hotels" type="button" role="tab" aria-controls="hotels"
-                                        aria-selected="false"><i class="fas fa-hotel"></i>Hotels</button>
+                                    <button class="nav-link" id="hotels-tab" data-bs-toggle="tab" data-bs-target="#hotels"
+                                        type="button" role="tab" aria-controls="hotels" aria-selected="false"><i
+                                            class="fas fa-hotel"></i>Hotels</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="visa-tab" data-bs-toggle="tab"
-                                        data-bs-target="#visa-application" type="button" role="tab" aria-controls="visa"
-                                        aria-selected="false"><i class="fas fa-passport"></i> Visa</button>
+                                        data-bs-target="#visa-application" type="button" role="tab"
+                                        aria-controls="visa" aria-selected="false"><i class="fas fa-passport"></i>
+                                        Visa</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="apartments-tab" data-bs-toggle="tab"
-                                        data-bs-target="#apartments" type="button" role="tab" aria-controls="apartments"
-                                        aria-selected="false"><i class="fas fa-building"></i> Apartments</button>
+                                        data-bs-target="#apartments" type="button" role="tab"
+                                        aria-controls="apartments" aria-selected="false"><i class="fas fa-building"></i>
+                                        Apartments</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="bus-tab" data-bs-toggle="tab" data-bs-target="#bus"
@@ -79,9 +81,9 @@
                                             class="fas fa-bus"></i> Bus</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="cruise-tab" data-bs-toggle="tab"
-                                        data-bs-target="#cruise" type="button" role="tab" aria-controls="cruise"
-                                        aria-selected="false"><i class="fas fa-ship"></i> Cruise</button>
+                                    <button class="nav-link" id="cruise-tab" data-bs-toggle="tab" data-bs-target="#cruise"
+                                        type="button" role="tab" aria-controls="cruise" aria-selected="false"><i
+                                            class="fas fa-ship"></i> Cruise</button>
                                 </li>
 
                             </ul>
@@ -102,8 +104,7 @@
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="roundtrip-tab" data-bs-toggle="tab"
                                                         data-bs-target="#roundtrip" type="button" role="tab"
-                                                        aria-controls="roundtrip"
-                                                        aria-selected="false">Roundtrip</button>
+                                                        aria-controls="roundtrip" aria-selected="false">Roundtrip</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="multi_city-tab" data-bs-toggle="tab"
@@ -158,8 +159,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-2  col-md-6 col-sm-12 col-12">
-                                                                <div
-                                                                    class="flight_Search_boxed dropdown_passenger_area">
+                                                                <div class="flight_Search_boxed dropdown_passenger_area">
                                                                     <p>Passenger, Class </p>
                                                                     <div class="dropdown">
                                                                         <button class="dropdown-toggle final-count"
@@ -184,53 +184,75 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="button-set">
-                                                                                                <button type="button" class="btn-add">
-                                                                                                    <i class="fas fa-plus"></i>
+                                                                                                <button type="button"
+                                                                                                    class="btn-add">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
                                                                                                 </button>
-                                                                                                <span class="count pcount">0</span>
-                                                                                                <button type="button" class="btn-subtract">
-                                                                                                    <i class="fas fa-minus"></i>
-                                                                                                </button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="passengers-type">
-                                                                                            <div class="text">
-                                                                                                <div class="type-label">
-                                                                                                    <p class="fz14 mb-xs-0"> Children
-                                                                                                    </p><span>2 - Less than 12 yrs</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="button-set">
-                                                                                                <button type="button" class="btn-add-c">
-                                                                                                    <i class="fas fa-plus"></i>
-                                                                                                </button>
-                                                                                                <span class="count pcount">0</span>
-                                                                                                <button type="button" class="btn-subtract-c">
-                                                                                                    <i class="fas fa-minus"></i>
+                                                                                                <span
+                                                                                                    class="count pcount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
                                                                                                 </button>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="passengers-type">
                                                                                             <div class="text">
                                                                                                 <div class="type-label">
-                                                                                                    <p class="fz14 mb-xs-0"> Infant
-                                                                                                    </p><span>Less than 2 yrs</span>
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Children
+                                                                                                    </p><span>2 - Less than
+                                                                                                        12 yrs</span>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="button-set">
-                                                                                                <button type="button" class="btn-add-c">
-                                                                                                    <i class="fas fa-plus"></i>
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
                                                                                                 </button>
-                                                                                                <span class="count pcount">0</span>
-                                                                                                <button type="button" class="btn-subtract-c">
-                                                                                                    <i class="fas fa-minus"></i>
+                                                                                                <span
+                                                                                                    class="count pcount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Infant
+                                                                                                    </p><span>Less than 2
+                                                                                                        yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span
+                                                                                                    class="count pcount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
                                                                                                 </button>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="cabin-selection mt-0">
-                                                                                    <button class="btn commonBtn">Done</button>
+                                                                                    <button
+                                                                                        class="btn commonBtn">Done</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -294,8 +316,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-2  col-md-6 col-sm-12 col-12">
-                                                                <div
-                                                                    class="flight_Search_boxed dropdown_passenger_area">
+                                                                <div class="flight_Search_boxed dropdown_passenger_area">
                                                                     <p>Passenger, Class </p>
                                                                     <div class="dropdown">
                                                                         <button class="dropdown-toggle final-count"
@@ -386,7 +407,8 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="cabin-selection mt-0">
-                                                                                    <button class="btn commonBtn">Done</button>
+                                                                                    <button
+                                                                                        class="btn commonBtn">Done</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -460,8 +482,7 @@
                                                                             class="flight_Search_boxed dropdown_passenger_area">
                                                                             <p>Passenger, Class </p>
                                                                             <div class="dropdown">
-                                                                                <button
-                                                                                    class="dropdown-toggle final-count"
+                                                                                <button class="dropdown-toggle final-count"
                                                                                     data-toggle="dropdown" type="button"
                                                                                     id="dropdownMenuButton1"
                                                                                     data-bs-toggle="dropdown"
@@ -474,8 +495,7 @@
                                                                                         class="traveller-calulate-persons">
                                                                                         <div class="passengers">
                                                                                             <h6>Passengers</h6>
-                                                                                            <div
-                                                                                                class="passengers-types">
+                                                                                            <div class="passengers-types">
                                                                                                 <div
                                                                                                     class="passengers-type">
                                                                                                     <div class="text">
@@ -570,7 +590,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="cabin-selection mt-0">
-                                                                                            <button class="btn commonBtn">Done</button>
+                                                                                            <button
+                                                                                                class="btn commonBtn">Done</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -630,8 +651,7 @@
                                                                             class="flight_Search_boxed dropdown_passenger_area">
                                                                             <p>Passenger, Class </p>
                                                                             <div class="dropdown">
-                                                                                <button
-                                                                                    class="dropdown-toggle final-count"
+                                                                                <button class="dropdown-toggle final-count"
                                                                                     data-toggle="dropdown" type="button"
                                                                                     id="dropdownMenuButton1"
                                                                                     data-bs-toggle="dropdown"
@@ -644,8 +664,7 @@
                                                                                         class="traveller-calulate-persons">
                                                                                         <div class="passengers">
                                                                                             <h6>Passengers</h6>
-                                                                                            <div
-                                                                                                class="passengers-types">
+                                                                                            <div class="passengers-types">
                                                                                                 <div
                                                                                                     class="passengers-type">
                                                                                                     <div class="text">
@@ -740,7 +759,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="cabin-selection mt-0">
-                                                                                            <button class="btn commonBtn">Done</button>
+                                                                                            <button
+                                                                                                class="btn commonBtn">Done</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1347,8 +1367,7 @@
                                                                             class="flight_Search_boxed dropdown_passenger_area">
                                                                             <p>Passenger, Class </p>
                                                                             <div class="dropdown">
-                                                                                <button
-                                                                                    class="dropdown-toggle final-count"
+                                                                                <button class="dropdown-toggle final-count"
                                                                                     data-toggle="dropdown" type="button"
                                                                                     id="dropdownMenuButton1"
                                                                                     data-bs-toggle="dropdown"
@@ -1361,8 +1380,7 @@
                                                                                         class="traveller-calulate-persons">
                                                                                         <div class="passengers">
                                                                                             <h6>Passengers</h6>
-                                                                                            <div
-                                                                                                class="passengers-types">
+                                                                                            <div class="passengers-types">
                                                                                                 <div
                                                                                                     class="passengers-type">
                                                                                                     <div class="text">
@@ -1457,7 +1475,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="cabin-selection mt-0">
-                                                                                            <button class="btn commonBtn">Done</button>
+                                                                                            <button
+                                                                                                class="btn commonBtn">Done</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1531,31 +1550,32 @@
         <div class="container">
             <!-- Section Heading -->
             <!-- <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="section_heading_center">
-                        <h2>42 tours found</h2>
-                    </div>
-                </div>
-            </div> -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="section_heading_center">
+                                <h2>42 tours found</h2>
+                            </div>
+                        </div>
+                    </div> -->
             <div class="row">
                 <div class="col-lg-3">
                     <div class="left_side_search_area">
                         <!-- <div class="left_side_search_boxed">
-                            <div class="left_side_search_heading">
-                                <h5>Filter by price</h5>
-                            </div>
-                            <div class="filter-price">
-                                <div id="price-slider"></div>
-                            </div>
-                            <button class="apply" type="button">Apply</button>
-                        </div> -->
+                                    <div class="left_side_search_heading">
+                                        <h5>Filter by price</h5>
+                                    </div>
+                                    <div class="filter-price">
+                                        <div id="price-slider"></div>
+                                    </div>
+                                    <button class="apply" type="button">Apply</button>
+                                </div> -->
                         <div class="left_side_search_boxed">
                             <div class="left_side_search_heading">
                                 <h5>Number of stops</h5>
                             </div>
                             <div class="tour_search_type">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultf1">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultf1">
                                     <label class="form-check-label" for="flexCheckDefaultf1">
                                         <span class="area_flex_one">
                                             <span>1 stop</span>
@@ -1564,7 +1584,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultf2">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultf2">
                                     <label class="form-check-label" for="flexCheckDefaultf2">
                                         <span class="area_flex_one">
                                             <span>2 stop</span>
@@ -1573,7 +1594,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultf3">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultf3">
                                     <label class="form-check-label" for="flexCheckDefaultf3">
                                         <span class="area_flex_one">
                                             <span>3 stop</span>
@@ -1582,7 +1604,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultf4">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultf4">
                                     <label class="form-check-label" for="flexCheckDefaultf4">
                                         <span class="area_flex_one">
                                             <span>Non-stop</span>
@@ -1599,7 +1622,8 @@
                             </div>
                             <div class="tour_search_type">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults1">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaults1">
                                     <label class="form-check-label" for="flexCheckDefaults1">
                                         <span class="area_flex_one">
                                             <span>Quatar Airways</span>
@@ -1608,7 +1632,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults2">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaults2">
                                     <label class="form-check-label" for="flexCheckDefaults2">
                                         <span class="area_flex_one">
                                             <span>Fly Amirates </span>
@@ -1617,7 +1642,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults3">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaults3">
                                     <label class="form-check-label" for="flexCheckDefaults3">
                                         <span class="area_flex_one">
                                             <span>Novo Air </span>
@@ -1626,7 +1652,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults4">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaults4">
                                     <label class="form-check-label" for="flexCheckDefaults4">
                                         <span class="area_flex_one">
                                             <span>Air Asia </span>
@@ -1639,7 +1666,8 @@
 
                                 <div class="hide-part">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults5">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefaults5">
                                         <label class="form-check-label" for="flexCheckDefaults5">
                                             <span class="area_flex_one">
                                                 <span>Singapore Airlines </span>
@@ -1648,7 +1676,8 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults5">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefaults5">
                                         <label class="form-check-label" for="flexCheckDefaults5">
                                             <span class="area_flex_one">
                                                 <span>Singapore Airlines </span>
@@ -1657,7 +1686,8 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults5">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefaults5">
                                         <label class="form-check-label" for="flexCheckDefaults5">
                                             <span class="area_flex_one">
                                                 <span>Singapore Airlines </span>
@@ -1666,7 +1696,8 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaults5">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefaults5">
                                         <label class="form-check-label" for="flexCheckDefaults5">
                                             <span class="area_flex_one">
                                                 <span>Singapore Airlines </span>
@@ -1684,7 +1715,8 @@
                             </div>
                             <div class="tour_search_type">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultp1">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultp1">
                                     <label class="form-check-label" for="flexCheckDefaultp1">
                                         <span class="area_flex_one">
                                             <span>Yes</span>
@@ -1693,7 +1725,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultp2">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultp2">
                                     <label class="form-check-label" for="flexCheckDefaultp2">
                                         <span class="area_flex_one">
                                             <span>No</span>
@@ -1702,7 +1735,8 @@
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultp3">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefaultp3">
                                     <label class="form-check-label" for="flexCheckDefaultp3">
                                         <span class="area_flex_one">
                                             <span>As per rules</span>
@@ -1726,7 +1760,7 @@
                                         <li><i class="fas fa-angle-right"></i></li>
                                         <li>Review your trip</li>
                                     </ul>
-                                </div   >
+                                </div>
                                 <ul class="choosedepartList">
                                     <li>
                                         <button class="btn chooseBtnFlt">
@@ -1778,8 +1812,12 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="flight_search_result_wrapper">
+                                {{-- list --}}
+                                @foreach ($totalFlight as $flightvalue )
+                                <?php print_r($flightvalue['FareItinerary']['OriginDestinationOptions'][0]['OriginDestinationOption'])?>
                                 <div class="flight_search_item_wrappper">
-                                    <div class="flight_search_items" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                    <div class="flight_search_items" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                         <div class="multi_city_flight_lists">
                                             <div class="flight_multis_area_wrapper">
                                                 <div class="flight_search_left">
@@ -1788,7 +1826,7 @@
                                                     </div>
                                                     <div class="flight_search_destination">
                                                         <p>From</p>
-                                                        <h3>New York</h3>
+                                                        <h3></h3>
                                                         <h6>JFK - John F. Kennedy International...</h6>
                                                     </div>
                                                 </div>
@@ -1813,219 +1851,264 @@
                                         </div>
                                     </div>
                                 </div>
+                                 @endforeach
+                                {{-- list --}}
 
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                  <div class="offcanvas-header">
-                                    <h5 id="offcanvasRightLabel">Select fare to New York</h5>
-                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                  </div>
-                                  <div class="offcanvas-body pt-0">
-                                    <div class="empireRateSection">
-                                        <div class="empireList">
-                                            <div class="">
-                                                <h4>10:00pm - 8:50am (20h 20m, 1 stop)<small>+1</small></h4>
-                                                <div class="flightIcons">
-                                                    <span><img src="assets/img/common/filght.svg" alt="img"></span>
-                                                    <span>Etihad Airways</span>
-                                                    <span><i class="fas fa-wifi"></i></span>
-                                                    <span><i class="fas fa-charging-station"></i></span>
-                                                    <span><i class="fas fa-tv"></i></span>
-                                                    <span class="aboveBg">Above average CO₂</span>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                                    aria-labelledby="offcanvasRightLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 id="offcanvasRightLabel">Select fare to New York</h5>
+                                        <button type="button" class="btn-close text-reset"
+                                            data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body pt-0">
+                                        <div class="empireRateSection">
+                                            <div class="empireList">
+                                                <div class="">
+                                                    <h4>10:00pm - 8:50am (20h 20m, 1 stop)<small>+1</small></h4>
+                                                    <div class="flightIcons">
+                                                        <span><img src="assets/img/common/filght.svg"
+                                                                alt="img"></span>
+                                                        <span>Etihad Airways</span>
+                                                        <span><i class="fas fa-wifi"></i></span>
+                                                        <span><i class="fas fa-charging-station"></i></span>
+                                                        <span><i class="fas fa-tv"></i></span>
+                                                        <span class="aboveBg">Above average CO₂</span>
+                                                    </div>
                                                 </div>
+                                                <ul class="detailBox">
+                                                    <li class="boxbordered">
+                                                        <div class="priceAndDetails">
+                                                            <h3>$393</h3>
+                                                            <small>$2,357.54 one way for 6 travelers</small>
+                                                            <p class="listheading">Economy Basic</p>
+                                                            <p class="cabintitle">Cabin: Economy</p>
+                                                        </div>
+                                                        <div class="seatbagsFlexibility">
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Seat</li>
+                                                                <li><span class="greenicon material-icons"> check_circle
+                                                                    </span> Seat choice for a fee</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Bags</li>
+                                                                <li><span class="greenicon material-icons"> check_circle
+                                                                    </span> Carry-on bag included (15 lbs)</li>
+                                                                <li><span class="material-icons"> close </span> 2 checked
+                                                                    bags included (50 lbs each)</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Flexibility</li>
+                                                                <li><span class="material-icons"> close </span>
+                                                                    Non-refundable</li>
+                                                                <li>
+                                                                    <div class="addtothisflight">
+                                                                        <label><span class="greenicon material-icons">
+                                                                                check_circle </span> Change fee: </label>
+                                                                        <small>$639</small>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="priceDrop">
+                                                                <h6><span></span>Price Drop Protection <a
+                                                                        href="#!"><span class="material-icons">
+                                                                            error_outline
+                                                                        </span></a></h6>
+                                                                <p>We’ll refund the difference if the price drops before you
+                                                                    fly.</p>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="" id="checkDefault">
+                                                                    <div class="addtothisflight">
+                                                                        <label class="form-check-label"
+                                                                            for="checkDefault">
+                                                                            Add to this flight
+                                                                        </label>
+                                                                        <span>$39</span>
+                                                                    </div>
+                                                                </div>
+                                                                <button
+                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="boxbordered">
+                                                        <div class="priceAndDetails">
+                                                            <h3>$393</h3>
+                                                            <small>$2,357.54 one way for 6 travelers</small>
+                                                            <p class="listheading">Economy Basic</p>
+                                                            <p class="cabintitle">Cabin: Economy</p>
+                                                        </div>
+                                                        <div class="seatbagsFlexibility">
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Seat</li>
+                                                                <li><span class="material-icons"> paid </span> Seat choice
+                                                                    for a fee</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Bags</li>
+                                                                <li><span class="greenicon material-icons"> check_circle
+                                                                    </span> Carry-on bag included (15 lbs)</li>
+                                                                <li><span class="material-icons"> close </span> 2 checked
+                                                                    bags included (50 lbs each)</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Flexibility</li>
+                                                                <li><span class="material-icons"> close </span>
+                                                                    Non-refundable</li>
+                                                                <li>
+                                                                    <div class="addtothisflight">
+                                                                        <label><span class="greenicon material-icons">
+                                                                                check_circle </span> Change fee: </label>
+                                                                        <small>$639</small>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="priceDrop">
+                                                                <h6><span></span>Price Drop Protection <a
+                                                                        href="#!"><span class="material-icons">
+                                                                            error_outline
+                                                                        </span></a></h6>
+                                                                <p>We’ll refund the difference if the price drops before you
+                                                                    fly.</p>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="" id="checkDefault">
+                                                                    <div class="addtothisflight">
+                                                                        <label class="form-check-label"
+                                                                            for="checkDefault">
+                                                                            Add to this flight
+                                                                        </label>
+                                                                        <span>$39</span>
+                                                                    </div>
+                                                                </div>
+                                                                <button
+                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="boxbordered">
+                                                        <div class="priceAndDetails">
+                                                            <h3>$393</h3>
+                                                            <small>$2,357.54 one way for 6 travelers</small>
+                                                            <p class="listheading">Economy Basic</p>
+                                                            <p class="cabintitle">Cabin: Economy</p>
+                                                        </div>
+                                                        <div class="seatbagsFlexibility">
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Seat</li>
+                                                                <li><span class="material-icons"> paid </span> Seat choice
+                                                                    for a fee</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Bags</li>
+                                                                <li><span class="greenicon material-icons"> check_circle
+                                                                    </span> Carry-on bag included (15 lbs)</li>
+                                                                <li><span class="material-icons"> close </span> 2 checked
+                                                                    bags included (50 lbs each)</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Flexibility</li>
+                                                                <li><span class="material-icons"> close </span>
+                                                                    Non-refundable</li>
+                                                                <li>
+                                                                    <div class="addtothisflight">
+                                                                        <label><span class="greenicon material-icons">
+                                                                                check_circle </span> Change fee: </label>
+                                                                        <small>$639</small>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="priceDrop">
+                                                                <h6><span></span>Price Drop Protection <a
+                                                                        href="#!"><span class="material-icons">
+                                                                            error_outline
+                                                                        </span></a></h6>
+                                                                <p>We’ll refund the difference if the price drops before you
+                                                                    fly.</p>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="" id="checkDefault">
+                                                                    <div class="addtothisflight">
+                                                                        <label class="form-check-label"
+                                                                            for="checkDefault">
+                                                                            Add to this flight
+                                                                        </label>
+                                                                        <span>$39</span>
+                                                                    </div>
+                                                                </div>
+                                                                <button
+                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="boxbordered">
+                                                        <div class="priceAndDetails">
+                                                            <h3>$393</h3>
+                                                            <small>$2,357.54 one way for 6 travelers</small>
+                                                            <p class="listheading">Economy Basic</p>
+                                                            <p class="cabintitle">Cabin: Economy</p>
+                                                        </div>
+                                                        <div class="seatbagsFlexibility">
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Seat</li>
+                                                                <li><span class="material-icons"> paid </span> Seat choice
+                                                                    for a fee</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Bags</li>
+                                                                <li><span class="greenicon material-icons"> check_circle
+                                                                    </span> Carry-on bag included (15 lbs)</li>
+                                                                <li><span class="material-icons"> close </span> 2 checked
+                                                                    bags included (50 lbs each)</li>
+                                                            </ul>
+                                                            <ul class="comntitle">
+                                                                <li class="listheading">Flexibility</li>
+                                                                <li><span class="material-icons"> close </span>
+                                                                    Non-refundable</li>
+                                                                <li>
+                                                                    <div class="addtothisflight">
+                                                                        <label><span class="greenicon material-icons">
+                                                                                check_circle </span> Change fee: </label>
+                                                                        <small>$639</small>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="priceDrop">
+                                                                <h6><span></span>Price Drop Protection <a
+                                                                        href="#!"><span class="material-icons">
+                                                                            error_outline
+                                                                        </span></a></h6>
+                                                                <p>We’ll refund the difference if the price drops before you
+                                                                    fly.</p>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="" id="checkDefault">
+                                                                    <div class="addtothisflight">
+                                                                        <label class="form-check-label"
+                                                                            for="checkDefault">
+                                                                            Add to this flight
+                                                                        </label>
+                                                                        <span>$39</span>
+                                                                    </div>
+                                                                </div>
+                                                                <button
+                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
                                             </div>
-                                            <ul class="detailBox">
-                                                <li class="boxbordered">
-                                                    <div class="priceAndDetails">
-                                                        <h3>$393</h3>
-                                                        <small>$2,357.54 one way for 6 travelers</small>
-                                                        <p class="listheading">Economy Basic</p>
-                                                        <p class="cabintitle">Cabin: Economy</p>
-                                                    </div>
-                                                    <div class="seatbagsFlexibility">
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Seat</li>
-                                                            <li><span class="greenicon material-icons"> check_circle </span> Seat choice for a fee</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Bags</li>
-                                                            <li><span class="greenicon material-icons"> check_circle </span> Carry-on bag included (15 lbs)</li>
-                                                            <li><span class="material-icons"> close </span> 2 checked bags  included (50 lbs each)</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Flexibility</li>
-                                                            <li><span class="material-icons"> close </span> Non-refundable</li>
-                                                            <li>
-                                                                <div class="addtothisflight">
-                                                                    <label><span class="greenicon material-icons"> check_circle </span> Change fee: </label>
-                                                                    <small>$639</small>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="priceDrop">
-                                                            <h6><span></span>Price Drop Protection <a href="#!"><span class="material-icons">
-                                                                error_outline
-                                                                </span></a></h6>
-                                                            <p>We’ll refund the difference if the price drops before you fly.</p>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="checkDefault">
-                                                                <div class="addtothisflight">
-                                                                    <label class="form-check-label" for="checkDefault">
-                                                                        Add to this flight
-                                                                    </label>
-                                                                    <span>$39</span>
-                                                                </div>
-                                                            </div>
-                                                            <button class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="boxbordered">
-                                                    <div class="priceAndDetails">
-                                                        <h3>$393</h3>
-                                                        <small>$2,357.54 one way for 6 travelers</small>
-                                                        <p class="listheading">Economy Basic</p>
-                                                        <p class="cabintitle">Cabin: Economy</p>
-                                                    </div>
-                                                    <div class="seatbagsFlexibility">
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Seat</li>
-                                                            <li><span class="material-icons"> paid </span> Seat choice for a fee</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Bags</li>
-                                                            <li><span class="greenicon material-icons"> check_circle </span> Carry-on bag included (15 lbs)</li>
-                                                            <li><span class="material-icons"> close </span> 2 checked bags  included (50 lbs each)</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Flexibility</li>
-                                                            <li><span class="material-icons"> close </span> Non-refundable</li>
-                                                            <li>
-                                                                <div class="addtothisflight">
-                                                                    <label><span class="greenicon material-icons"> check_circle </span> Change fee: </label>
-                                                                    <small>$639</small>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="priceDrop">
-                                                            <h6><span></span>Price Drop Protection <a href="#!"><span class="material-icons">
-                                                                error_outline
-                                                                </span></a></h6>
-                                                            <p>We’ll refund the difference if the price drops before you fly.</p>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="checkDefault">
-                                                                <div class="addtothisflight">
-                                                                    <label class="form-check-label" for="checkDefault">
-                                                                        Add to this flight
-                                                                    </label>
-                                                                    <span>$39</span>
-                                                                </div>
-                                                            </div>
-                                                            <button class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="boxbordered">
-                                                    <div class="priceAndDetails">
-                                                        <h3>$393</h3>
-                                                        <small>$2,357.54 one way for 6 travelers</small>
-                                                        <p class="listheading">Economy Basic</p>
-                                                        <p class="cabintitle">Cabin: Economy</p>
-                                                    </div>
-                                                    <div class="seatbagsFlexibility">
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Seat</li>
-                                                            <li><span class="material-icons"> paid </span> Seat choice for a fee</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Bags</li>
-                                                            <li><span class="greenicon material-icons"> check_circle </span> Carry-on bag included (15 lbs)</li>
-                                                            <li><span class="material-icons"> close </span> 2 checked bags  included (50 lbs each)</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Flexibility</li>
-                                                            <li><span class="material-icons"> close </span> Non-refundable</li>
-                                                            <li>
-                                                                <div class="addtothisflight">
-                                                                    <label><span class="greenicon material-icons"> check_circle </span> Change fee: </label>
-                                                                    <small>$639</small>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="priceDrop">
-                                                            <h6><span></span>Price Drop Protection <a href="#!"><span class="material-icons">
-                                                                error_outline
-                                                                </span></a></h6>
-                                                            <p>We’ll refund the difference if the price drops before you fly.</p>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="checkDefault">
-                                                                <div class="addtothisflight">
-                                                                    <label class="form-check-label" for="checkDefault">
-                                                                        Add to this flight
-                                                                    </label>
-                                                                    <span>$39</span>
-                                                                </div>
-                                                            </div>
-                                                            <button class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="boxbordered">
-                                                    <div class="priceAndDetails">
-                                                        <h3>$393</h3>
-                                                        <small>$2,357.54 one way for 6 travelers</small>
-                                                        <p class="listheading">Economy Basic</p>
-                                                        <p class="cabintitle">Cabin: Economy</p>
-                                                    </div>
-                                                    <div class="seatbagsFlexibility">
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Seat</li>
-                                                            <li><span class="material-icons"> paid </span> Seat choice for a fee</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Bags</li>
-                                                            <li><span class="greenicon material-icons"> check_circle </span> Carry-on bag included (15 lbs)</li>
-                                                            <li><span class="material-icons"> close </span> 2 checked bags  included (50 lbs each)</li>
-                                                        </ul>
-                                                        <ul class="comntitle">
-                                                            <li class="listheading">Flexibility</li>
-                                                            <li><span class="material-icons"> close </span> Non-refundable</li>
-                                                            <li>
-                                                                <div class="addtothisflight">
-                                                                    <label><span class="greenicon material-icons"> check_circle </span> Change fee: </label>
-                                                                    <small>$639</small>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="priceDrop">
-                                                            <h6><span></span>Price Drop Protection <a href="#!"><span class="material-icons">
-                                                                error_outline
-                                                                </span></a></h6>
-                                                            <p>We’ll refund the difference if the price drops before you fly.</p>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="checkDefault">
-                                                                <div class="addtothisflight">
-                                                                    <label class="form-check-label" for="checkDefault">
-                                                                        Add to this flight
-                                                                    </label>
-                                                                    <span>$39</span>
-                                                                </div>
-                                                            </div>
-                                                            <button class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
 
 
                                 <!-- Flight Search Item -->
-                                <div class="flight_search_item_wrappper">
+                                {{-- <div class="flight_search_item_wrappper">
                                     <div class="flight_search_items">
                                         <div class="multi_city_flight_lists">
                                             <div class="flight_multis_area_wrapper">
@@ -2167,7 +2250,7 @@
                                         </div>
                                     </div>
 
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="load_more_flight">
                                 <button class="btn btn_md"><i class="fas fa-spinner fa-spin"></i> Load more..</button>
@@ -2206,4 +2289,5 @@
             </div>
         </div>
     </section>
-   @endsection
+
+@endsection

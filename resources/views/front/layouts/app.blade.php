@@ -193,7 +193,7 @@
             if (journeyDayEl) {
                 journeyDayEl.innerText = weekdays[today.getDay()];
                 flatpickr("#datepicker", {
-                    dateFormat: "d M",
+                    dateFormat: "d M Y",
                     defaultDate: today,
                     minDate: today,
                     onChange: function(selectedDates) {
@@ -216,7 +216,7 @@
                 endDayEl.innerText = weekdays[returnDay.getDay()];
 
                 const start = flatpickr(startInput, {
-                    dateFormat: "d M",
+                    dateFormat: "d M Y",
                     defaultDate: today,
                     minDate: today,
                     onChange: function(selectedDates) {
@@ -228,7 +228,7 @@
                 });
 
                 const end = flatpickr(endInput, {
-                    dateFormat: "d M",
+                    dateFormat: "d M Y",
                     defaultDate: new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000), // +3 days
                     minDate: today,
                     onChange: function(selectedDates) {
