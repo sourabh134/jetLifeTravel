@@ -1813,8 +1813,8 @@
                         <div class="col-lg-12">
                             <div class="flight_search_result_wrapper">
                                 {{-- list --}}
-                                @foreach ($totalFlight as $flightvalue )
-                                <?php print_r($flightvalue['FareItinerary']['OriginDestinationOptions'][0]['OriginDestinationOption'])?>
+                                @foreach ($flightSearch as $flightvalue )
+
                                 <div class="flight_search_item_wrappper">
                                     <div class="flight_search_items" data-bs-toggle="offcanvas"
                                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -1822,32 +1822,33 @@
                                             <div class="flight_multis_area_wrapper">
                                                 <div class="flight_search_left">
                                                     <div class="flight_logo">
-                                                        <img src="assets/img/common/filght.svg" alt="img">
+                                                        <img src="{{$flightvalue['Segment'][0]['AirLineLogo']}}" alt="img"><br/>
+                                                        <span>{{$flightvalue['Segment'][0]['AirlineName']}}</span>
                                                     </div>
                                                     <div class="flight_search_destination">
                                                         <p>From</p>
-                                                        <h3></h3>
-                                                        <h6>JFK - John F. Kennedy International...</h6>
+                                                        <h3>{{$flightvalue['fromcode']}} - {{ $flightvalue['Segment'][0]['DepartureTime'] }}</h3>
+                                                        <h6>{{$flightvalue['from']}}</h6>
                                                     </div>
                                                 </div>
                                                 <div class="flight_search_middel">
                                                     <div class="flight_right_arrow">
-                                                        <img src="assets/img/icon/right_arrow.png" alt="icon">
-                                                        <h6>Non-stop</h6>
-                                                        <p>01h 05minute </p>
+                                                        <img src="assets/front/img/icon/right_arrow.png" alt="icon">
+                                                        <h6>{{$flightvalue['totalStopsName']}} {{ $flightvalue['totalStopsName'] != 'Non-Stop' ? '(' . $flightvalue['Segment'][0]['ArrivalAirportLocationCode'] . ')' : '' }}</h6>
+                                                        <p>{{$flightvalue['totalJourneyDuration']}} </p>
                                                     </div>
                                                     <div class="flight_search_destination">
                                                         <p>To</p>
-                                                        <h3>London </h3>
-                                                        <h6>LCY, London city airport </h6>
+                                                        <h3>{{$flightvalue['tocode']}} - {{ $flightvalue['Segment'][count($flightvalue['Segment']) - 1]['ArrivalTime'] }}</h3>
+                                                        <h6>{{$flightvalue['to']}} </h6>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="flight_search_right">
                                             <!-- <h5><del>$9,560</del></h5> -->
-                                            <h2>$7,560<sup>*20% OFF</sup></h2>
-                                            <p>*Discount applicable on some conditions</p>
+                                            <h2>$7,560</h2>
+                                            {{-- <p>*Discount applicable on some conditions</p> --}}
                                         </div>
                                     </div>
                                 </div>

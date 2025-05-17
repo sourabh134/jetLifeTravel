@@ -3009,7 +3009,9 @@
                 `&options=cabinclass:${cabinClass}` +
                 `&fromDate=${departureDate}` +
                 `&d1=${departureDate}` +
-                `&passengers=${passengerString}`;
+                `&passengers=${passengerString}` +
+                `&fromname=${fromInput}` +
+                `&toname=${toInput}`;
 
             // Redirect
             window.location.href = finalURL;

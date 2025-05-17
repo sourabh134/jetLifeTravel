@@ -62,17 +62,26 @@ class HomeController extends Controller
             $cabinClass = $optionData['cabinclass'];
             $flightsearchoneway = APIService::flightsearchoneway($journeyType, $departure, $to, $from, $cabinClass, $adults, $children, $infantInLap);
             $totalFlight = $flightsearchoneway['AirSearchResponse']['AirSearchResult']['FareItineraries'];
-            foreach ($totalFlight as $flightvalue) {
-                // Get basic itinerary info
-                $totalStops = $flightvalue['OriginDestinationOptions'][0]['TotalStops'];
-                $totalFare = $flightvalue['ItinTotalFares']['TotalFare']['Amount'];
-                $currency = $flightvalue['ItinTotalFares']['TotalFare']['CurrencyCode'];
 
-                // Process flight segments
-                $segments = $flightvalue['OriginDestinationOptions'][0]['OriginDestinationOption'];
+            foreach ($totalFlight as $flightvalue) {
+                // Get total stops and fare info
+                $totalStops = $flightvalue['FareItinerary']['OriginDestinationOptions'][0]['TotalStops'];
+                $totalFare = $flightvalue['FareItinerary']['AirItineraryFareInfo']['ItinTotalFares']['TotalFare']['Amount'];
+                $currency = $flightvalue['FareItinerary']['AirItineraryFareInfo']['ItinTotalFares']['TotalFare']['CurrencyCode'];
+
+                // Get fare breakdown, cabin baggage, cabin class code
+                $fareBreakdown = $flightvalue['FareItinerary']['AirItineraryFareInfo']['FareBreakdown'];
+                $cabinBaggageList = [];
+                foreach ($fareBreakdown as $fare) {
+                    $cabinBaggageList[] = $fare['CabinBaggage'][0] ?? 'N/A';
+                }
+                $cabinClassCode = $flightvalue['FareItinerary']['OriginDestinationOptions'][0]['OriginDestinationOption'][0]['FlightSegment']['CabinClassCode'] ?? 'N/A';
+
+                // Process segments
+                $segments = $flightvalue['FareItinerary']['OriginDestinationOptions'][0]['OriginDestinationOption'];
                 $lastSegment = end($segments);
 
-                // Calculate total journey duration
+                // Calculate journey duration
                 $journeyDuration = 0;
                 foreach ($segments as $segment) {
                     $journeyDuration += $segment['FlightSegment']['JourneyDuration'];
@@ -81,44 +90,68 @@ class HomeController extends Controller
                 $minutes = $journeyDuration % 60;
                 $formattedDuration = $hours . "h " . $minutes . "m";
 
-                // Output header
-                echo "================================\n";
-                echo "FLIGHT ITINERARY SUMMARY\n";
-                echo "================================\n\n";
+                // Store flight details
+                $air = [];
+                $air['from'] = $request->fromname;
+                $air['fromcode'] = $from;
+                $air['to'] = $request->toname;
+                $air['tocode'] = $to;
+                $air['totalStops'] = $totalStops;
+                $air['totalStopsName'] =  ($totalStops == 0) ? 'Non-Stop' : $totalStops . ' Stop';
+                $air['totalJourneyDuration'] = $formattedDuration;
+                $air['totalFare'] = '$' . $totalFare;
+                $air['currency'] = $currency;
+                $air['airport'] = $lastSegment['FlightSegment']['ArrivalAirportLocationCode'];
+                $air['dateTime'] = $lastSegment['FlightSegment']['ArrivalDateTime'];
+                $air['cabinClassCode'] = $cabinClassCode;
+                $air['cabinBaggage'] =  current($cabinBaggageList); // in case multiple passengers with different values
 
-                // Output basic info
-                echo "Total Stops: " . $totalStops . "\n";
-                echo "Total Journey Duration: " . $formattedDuration . "\n";
-                echo "Total Fare: " . $totalFare . " " . $currency . "\n\n";
-
-                // Output final arrival info
-                echo "Final Arrival:\n";
-                echo "- Airport: " . $lastSegment['FlightSegment']['ArrivalAirportLocationCode'] . "\n";
-                echo "- Date/Time: " . $lastSegment['FlightSegment']['ArrivalDateTime'] . "\n\n";
-
-                // Output detailed flight segments
-                echo "Flight Segments:\n";
-                echo "----------------\n";
-
+                // Segment details
+                $segmatArray = [];
                 foreach ($segments as $i => $segment) {
                     $fs = $segment['FlightSegment'];
-                    echo "Segment " . ($i + 1) . ":\n";
-                    echo "Airline: " . $fs['MarketingAirlineName'] . " (" . $fs['MarketingAirlineCode'] . ")\n";
-                    echo "Route: " . $fs['DepartureAirportLocationCode'] . " → " . $fs['ArrivalAirportLocationCode'] . "\n";
-                    echo "Departure: " . $fs['DepartureDateTime'] . "\n";
-                    echo "Arrival: " . $fs['ArrivalDateTime'] . "\n";
-                    echo "Duration: " . floor($fs['JourneyDuration'] / 60) . "h " . ($fs['JourneyDuration'] % 60) . "m\n";
-                    echo "Flight Number: " . $fs['FlightNumber'] . "\n";
-                    echo "----------------\n";
+
+                    $seg['Segment'] = ($i + 1);
+                    $seg['Airline'] = $fs['MarketingAirlineName'] . " (" . $fs['MarketingAirlineCode'] . ")";
+                    $seg['AirlineName'] = $fs['MarketingAirlineName'];
+                    $seg['Route'] = $fs['DepartureAirportLocationCode'] . " → " . $fs['ArrivalAirportLocationCode'];
+                    $seg['DepartureAirportLocationCode'] = $fs['DepartureAirportLocationCode'];
+                    $seg['ArrivalAirportLocationCode'] = $fs['ArrivalAirportLocationCode'];
+                    $seg['Departure'] = $fs['DepartureDateTime'];
+                    $seg['DepartureTime'] = date('H:i', strtotime($fs['DepartureDateTime']));
+                    $seg['Arrival'] = $fs['ArrivalDateTime'];
+                    $seg['ArrivalTime'] = date('H:i', strtotime($fs['ArrivalDateTime']));
+                    $seg['Duration'] = floor($fs['JourneyDuration'] / 60) . "h " . ($fs['JourneyDuration'] % 60) . "m";
+                    $seg['FlightNumber'] = $fs['FlightNumber'];
+                    $seg['AirLineLogo'] = "https://travelnext.works/api/airlines/" . $fs['MarketingAirlineCode'] . ".gif";
+                    $seg['SeatsRemaining'] = $segment['SeatsRemaining']['Number'] ?? 'N/A';
+                    $seg['MealCode'] = $fs['MealCode'] ?? 'Not specified';
+
+                    $segmatArray[] = $seg;
                 }
 
-                die;
+                $air['Segment'] = $segmatArray;
+                // Add FareBreakdown
+                $fareBreakdown = $flightvalue['FareItinerary']['AirItineraryFareInfo']['FareBreakdown'];
+                $fareDetails = [];
+                foreach ($fareBreakdown as $fare) {
+                    $details = [
+                        'PassengerType' => $fare['PassengerTypeQuantity']['Code'],
+                        'Quantity' => $fare['PassengerTypeQuantity']['Quantity'],
+                        'BaseFare' => $fare['PassengerFare']['BaseFare']['Amount'],
+                        'TotalFare' => $fare['PassengerFare']['TotalFare']['Amount'],
+                        'Baggage' => current($fare['Baggage']),
+                        'CabinBaggage' => current($fare['CabinBaggage'])
+                    ];
+                    $fareDetails[] = $details;
+                }
+                $air['FareBreakdown'] = $fareDetails;
+                $flightSearch[] = $air;
             }
-            die;
             // echo "<pre>";
-            // print_r($flightsearchoneway['AirSearchResponse']['AirSearchResult']['FareItineraries']);
+            // print_r($flightSearch);
             // die;
         }
-        return view('front.flight-search-result', compact('totalFlight'));
+        return view('front.flight-search-result', compact('flightSearch'));
     }
 }
