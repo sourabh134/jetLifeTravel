@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'JetLife Travel')
+@section('title', $from . ' to ' . $to . ' flights')
 
 @section('content')
     <!-- search -->
@@ -1813,11 +1813,14 @@
                         <div class="col-lg-12">
                             <div class="flight_search_result_wrapper">
                                 {{-- list --}}
+                                @php
+                                    $i=1
+                                @endphp
                                 @foreach ($flightSearch as $flightvalue )
 
                                 <div class="flight_search_item_wrappper">
                                     <div class="flight_search_items" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                        data-bs-target="#offcanvasRight{{$i}}" aria-controls="offcanvasRight{{$i}}">
                                         <div class="multi_city_flight_lists">
                                             <div class="flight_multis_area_wrapper">
                                                 <div class="flight_search_left">
@@ -1847,18 +1850,18 @@
                                         </div>
                                         <div class="flight_search_right">
                                             <!-- <h5><del>$9,560</del></h5> -->
-                                            <h2>$7,560</h2>
+                                            <h2>${{number_format($flightvalue['FareBreakdown'][0]['TotalFarePerPassenger'],2)}}</h2>
                                             {{-- <p>*Discount applicable on some conditions</p> --}}
                                         </div>
                                     </div>
                                 </div>
-                                 @endforeach
+
                                 {{-- list --}}
 
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight{{$i}}"
                                     aria-labelledby="offcanvasRightLabel">
                                     <div class="offcanvas-header">
-                                        <h5 id="offcanvasRightLabel">Select fare to New York</h5>
+                                        <h5 id="offcanvasRightLabel">Select fare to New Yordfdfdfk</h5>
                                         <button type="button" class="btn-close text-reset"
                                             data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     </div>
@@ -2106,6 +2109,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                @php
+                                    $i++
+                                @endphp
+                                 @endforeach
 
 
                                 <!-- Flight Search Item -->

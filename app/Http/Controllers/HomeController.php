@@ -62,9 +62,12 @@ class HomeController extends Controller
             $cabinClass = $optionData['cabinclass'];
             $flightsearchoneway = APIService::flightsearchoneway($journeyType, $departure, $to, $from, $cabinClass, $adults, $children, $infantInLap);
             $totalFlight = $flightsearchoneway['AirSearchResponse']['AirSearchResult']['FareItineraries'];
+            $flightsession = $flightsearchoneway['AirSearchResponse']['session_id'];
 
             foreach ($totalFlight as $flightvalue) {
                 // Get total stops and fare info
+                $FareSourceCode = $flightvalue['FareItinerary']['AirItineraryFareInfo']['FareSourceCode'];
+                $IsPassportMandatory = $flightvalue['FareItinerary']['IsPassportMandatory'];
                 $totalStops = $flightvalue['FareItinerary']['OriginDestinationOptions'][0]['TotalStops'];
                 $totalFare = $flightvalue['FareItinerary']['AirItineraryFareInfo']['ItinTotalFares']['TotalFare']['Amount'];
                 $currency = $flightvalue['FareItinerary']['AirItineraryFareInfo']['ItinTotalFares']['TotalFare']['CurrencyCode'];
@@ -92,6 +95,9 @@ class HomeController extends Controller
 
                 // Store flight details
                 $air = [];
+                $air['flightsession'] = $flightsession;
+                $air['FareSourceCode'] = $FareSourceCode;
+                $air['IsPassportMandatory'] = $IsPassportMandatory;
                 $air['from'] = $request->fromname;
                 $air['fromcode'] = $from;
                 $air['to'] = $request->toname;
@@ -140,6 +146,7 @@ class HomeController extends Controller
                         'Quantity' => $fare['PassengerTypeQuantity']['Quantity'],
                         'BaseFare' => $fare['PassengerFare']['BaseFare']['Amount'],
                         'TotalFare' => $fare['PassengerFare']['TotalFare']['Amount'],
+                        'TotalFarePerPassenger' => $fare['PassengerFare']['TotalFare']['Amount']/$fare['PassengerTypeQuantity']['Quantity'],
                         'Baggage' => current($fare['Baggage']),
                         'CabinBaggage' => current($fare['CabinBaggage'])
                     ];
@@ -152,6 +159,6 @@ class HomeController extends Controller
             // print_r($flightSearch);
             // die;
         }
-        return view('front.flight-search-result', compact('flightSearch'));
+        return view('front.flight-search-result', compact('flightSearch','from','to'));
     }
 }
