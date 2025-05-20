@@ -1548,165 +1548,56 @@
     <!-- Flight Search Areas -->
     <section id="explore_area" class="section_padding">
         <div class="container">
-            <!-- Section Heading -->
-            <!-- <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="section_heading_center">
-                                <h2>42 tours found</h2>
-                            </div>
-                        </div>
-                    </div> -->
             <div class="row">
                 <div class="col-lg-3">
                     <div class="left_side_search_area">
-                        <!-- <div class="left_side_search_boxed">
-                                    <div class="left_side_search_heading">
-                                        <h5>Filter by price</h5>
-                                    </div>
-                                    <div class="filter-price">
-                                        <div id="price-slider"></div>
-                                    </div>
-                                    <button class="apply" type="button">Apply</button>
-                                </div> -->
+
                         <div class="left_side_search_boxed">
                             <div class="left_side_search_heading">
                                 <h5>Number of stops</h5>
                             </div>
                             <div class="tour_search_type">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultf1">
-                                    <label class="form-check-label" for="flexCheckDefaultf1">
-                                        <span class="area_flex_one">
-                                            <span>1 stop</span>
-                                            <span>20</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultf2">
-                                    <label class="form-check-label" for="flexCheckDefaultf2">
-                                        <span class="area_flex_one">
-                                            <span>2 stop</span>
-                                            <span>16</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultf3">
-                                    <label class="form-check-label" for="flexCheckDefaultf3">
-                                        <span class="area_flex_one">
-                                            <span>3 stop</span>
-                                            <span>30</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultf4">
-                                    <label class="form-check-label" for="flexCheckDefaultf4">
-                                        <span class="area_flex_one">
-                                            <span>Non-stop</span>
-                                            <span>22</span>
-                                        </span>
-                                    </label>
-                                </div>
+                                @foreach ($stopStats as $stopType => $stopsval)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $stopType }}"
+                                            id="stop_{{ Str::slug($stopType) }}">
+                                        <label class="form-check-label" for="stop_{{ Str::slug($stopType) }}">
+                                            <span class="area_flex_one">
+                                                <span>{{ $stopType }}</span>
+                                                <span>{{ $stopsval['count'] }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-
                         <div class="left_side_search_boxed">
                             <div class="left_side_search_heading">
                                 <h5>Airlines</h5>
                             </div>
                             <div class="tour_search_type">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaults1">
-                                    <label class="form-check-label" for="flexCheckDefaults1">
-                                        <span class="area_flex_one">
-                                            <span>Quatar Airways</span>
-                                            <span>17</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaults2">
-                                    <label class="form-check-label" for="flexCheckDefaults2">
-                                        <span class="area_flex_one">
-                                            <span>Fly Amirates </span>
-                                            <span>14</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaults3">
-                                    <label class="form-check-label" for="flexCheckDefaults3">
-                                        <span class="area_flex_one">
-                                            <span>Novo Air </span>
-                                            <span>62</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaults4">
-                                    <label class="form-check-label" for="flexCheckDefaults4">
-                                        <span class="area_flex_one">
-                                            <span>Air Asia </span>
-                                            <span>08</span>
-                                        </span>
-                                    </label>
-                                </div>
+                                @php
+                                    $limit = 6;
+                                    $index = 0;
+                                @endphp
 
+                                @foreach ($airlineStats as $airline => $airlineval)
+                                    <div
+                                        class="form-check airline-item {{ $index >= $limit ? 'd-none extra-airline' : '' }}">
+                                        <input class="form-check-input" type="checkbox" value="{{ $airline }}"
+                                            id="airline_{{ Str::slug($airline) }}">
+                                        <label class="form-check-label" for="airline_{{ Str::slug($airline) }}">
+                                            <span class="area_flex_one">
+                                                <span>{{ $airline }}</span>
+                                                <span>{{ $airlineval['count'] }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    @php $index++; @endphp
+                                @endforeach
 
-
-                                <div class="hide-part">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefaults5">
-                                        <label class="form-check-label" for="flexCheckDefaults5">
-                                            <span class="area_flex_one">
-                                                <span>Singapore Airlines </span>
-                                                <span>12</span>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefaults5">
-                                        <label class="form-check-label" for="flexCheckDefaults5">
-                                            <span class="area_flex_one">
-                                                <span>Singapore Airlines </span>
-                                                <span>12</span>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefaults5">
-                                        <label class="form-check-label" for="flexCheckDefaults5">
-                                            <span class="area_flex_one">
-                                                <span>Singapore Airlines </span>
-                                                <span>12</span>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefaults5">
-                                        <label class="form-check-label" for="flexCheckDefaults5">
-                                            <span class="area_flex_one">
-                                                <span>Singapore Airlines </span>
-                                                <span>12</span>
-                                            </span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <a href="#!" class="show-more">Show More</a>
+                                <a href="#!" class="show-more-toggle show-more" onclick="toggleAirlines()">Show
+                                    More</a>
                             </div>
                         </div>
                         <div class="left_side_search_boxed">
@@ -1714,36 +1605,18 @@
                                 <h5>Refundable</h5>
                             </div>
                             <div class="tour_search_type">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultp1">
-                                    <label class="form-check-label" for="flexCheckDefaultp1">
-                                        <span class="area_flex_one">
-                                            <span>Yes</span>
-                                            <span>17</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultp2">
-                                    <label class="form-check-label" for="flexCheckDefaultp2">
-                                        <span class="area_flex_one">
-                                            <span>No</span>
-                                            <span>14</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefaultp3">
-                                    <label class="form-check-label" for="flexCheckDefaultp3">
-                                        <span class="area_flex_one">
-                                            <span>As per rules</span>
-                                            <span>62</span>
-                                        </span>
-                                    </label>
-                                </div>
+                                @foreach ($refundStats as $refund => $refundval)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $refund }}"
+                                            id="refund_{{ Str::slug($refund) }}">
+                                        <label class="form-check-label" for="refund_{{ Str::slug($refund) }}">
+                                            <span class="area_flex_one">
+                                                <span>{{ $refund }}</span>
+                                                <span>{{ $refundval }}</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -1755,8 +1628,8 @@
                                 <div class="chooseTitle">
                                     <ul class="titleinline">
                                         <li><strong>Choose departing flight</strong></li>
-                                        <li><i class="fas fa-angle-right"></i></li>
-                                        <li>Choose returning flight</li>
+                                        {{-- <li><i class="fas fa-angle-right"></i></li>
+                                        <li>Choose returning flight</li> --}}
                                         <li><i class="fas fa-angle-right"></i></li>
                                         <li>Review your trip</li>
                                     </ul>
@@ -1814,454 +1687,67 @@
                             <div class="flight_search_result_wrapper">
                                 {{-- list --}}
                                 @php
-                                    $i=1
+                                    $limit = 10;
+                                    $i = 1;
                                 @endphp
-                                @foreach ($flightSearch as $flightvalue )
-
-                                <div class="flight_search_item_wrappper">
-                                    <div class="flight_search_items" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasRight{{$i}}" aria-controls="offcanvasRight{{$i}}">
-                                        <div class="multi_city_flight_lists">
-                                            <div class="flight_multis_area_wrapper">
-                                                <div class="flight_search_left">
-                                                    <div class="flight_logo">
-                                                        <img src="{{$flightvalue['Segment'][0]['AirLineLogo']}}" alt="img"><br/>
-                                                        <span>{{$flightvalue['Segment'][0]['AirlineName']}}</span>
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>From</p>
-                                                        <h3>{{$flightvalue['fromcode']}} - {{ $flightvalue['Segment'][0]['DepartureTime'] }}</h3>
-                                                        <h6>{{$flightvalue['from']}}</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="flight_search_middel">
-                                                    <div class="flight_right_arrow">
-                                                        <img src="assets/front/img/icon/right_arrow.png" alt="icon">
-                                                        <h6>{{$flightvalue['totalStopsName']}} {{ $flightvalue['totalStopsName'] != 'Non-Stop' ? '(' . $flightvalue['Segment'][0]['ArrivalAirportLocationCode'] . ')' : '' }}</h6>
-                                                        <p>{{$flightvalue['totalJourneyDuration']}} </p>
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>To</p>
-                                                        <h3>{{$flightvalue['tocode']}} - {{ $flightvalue['Segment'][count($flightvalue['Segment']) - 1]['ArrivalTime'] }}</h3>
-                                                        <h6>{{$flightvalue['to']}} </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flight_search_right">
-                                            <!-- <h5><del>$9,560</del></h5> -->
-                                            <h2>${{number_format($flightvalue['FareBreakdown'][0]['TotalFarePerPassenger'],2)}}</h2>
-                                            {{-- <p>*Discount applicable on some conditions</p> --}}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- list --}}
-
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight{{$i}}"
-                                    aria-labelledby="offcanvasRightLabel">
-                                    <div class="offcanvas-header">
-                                        <h5 id="offcanvasRightLabel">Select fare to New Yordfdfdfk</h5>
-                                        <button type="button" class="btn-close text-reset"
-                                            data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                    </div>
-                                    <div class="offcanvas-body pt-0">
-                                        <div class="empireRateSection">
-                                            <div class="empireList">
-                                                <div class="">
-                                                    <h4>10:00pm - 8:50am (20h 20m, 1 stop)<small>+1</small></h4>
-                                                    <div class="flightIcons">
-                                                        <span><img src="assets/img/common/filght.svg"
-                                                                alt="img"></span>
-                                                        <span>Etihad Airways</span>
-                                                        <span><i class="fas fa-wifi"></i></span>
-                                                        <span><i class="fas fa-charging-station"></i></span>
-                                                        <span><i class="fas fa-tv"></i></span>
-                                                        <span class="aboveBg">Above average CO₂</span>
-                                                    </div>
-                                                </div>
-                                                <ul class="detailBox">
-                                                    <li class="boxbordered">
-                                                        <div class="priceAndDetails">
-                                                            <h3>$393</h3>
-                                                            <small>$2,357.54 one way for 6 travelers</small>
-                                                            <p class="listheading">Economy Basic</p>
-                                                            <p class="cabintitle">Cabin: Economy</p>
-                                                        </div>
-                                                        <div class="seatbagsFlexibility">
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Seat</li>
-                                                                <li><span class="greenicon material-icons"> check_circle
-                                                                    </span> Seat choice for a fee</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Bags</li>
-                                                                <li><span class="greenicon material-icons"> check_circle
-                                                                    </span> Carry-on bag included (15 lbs)</li>
-                                                                <li><span class="material-icons"> close </span> 2 checked
-                                                                    bags included (50 lbs each)</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Flexibility</li>
-                                                                <li><span class="material-icons"> close </span>
-                                                                    Non-refundable</li>
-                                                                <li>
-                                                                    <div class="addtothisflight">
-                                                                        <label><span class="greenicon material-icons">
-                                                                                check_circle </span> Change fee: </label>
-                                                                        <small>$639</small>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="priceDrop">
-                                                                <h6><span></span>Price Drop Protection <a
-                                                                        href="#!"><span class="material-icons">
-                                                                            error_outline
-                                                                        </span></a></h6>
-                                                                <p>We’ll refund the difference if the price drops before you
-                                                                    fly.</p>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        value="" id="checkDefault">
-                                                                    <div class="addtothisflight">
-                                                                        <label class="form-check-label"
-                                                                            for="checkDefault">
-                                                                            Add to this flight
-                                                                        </label>
-                                                                        <span>$39</span>
-                                                                    </div>
-                                                                </div>
-                                                                <button
-                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                @foreach ($flightSearch as $flightvalue)
+                                    <div class="flight-item {{ $i > $limit ? 'd-none extra-flight' : '' }}"
+                                        data-stops="{{ $flightvalue['totalStopsName'] }}"
+                                        data-airline="{{ $flightvalue['Segment'][0]['AirlineName'] }}"
+                                        data-refund="{{ $flightvalue['IsRefundable'] }}">
+                                        <div class="flight_search_item_wrappper">
+                                            <div class="flight_search_items" data-bs-toggle="offcanvas"
+                                                data-bs-target="#offcanvasRight{{ $i }}"
+                                                aria-controls="offcanvasRight{{ $i }}">
+                                                <div class="multi_city_flight_lists">
+                                                    <div class="flight_multis_area_wrapper">
+                                                        <div class="flight_search_left">
+                                                            <div class="flight_logo">
+                                                                <img src="{{ $flightvalue['Segment'][0]['AirLineLogo'] }}"
+                                                                    alt="img"><br />
+                                                                <span>{{ $flightvalue['Segment'][0]['AirlineName'] }}</span>
+                                                            </div>
+                                                            <div class="flight_search_destination">
+                                                                <p>From</p>
+                                                                <h3>{{ $flightvalue['fromcode'] }} -
+                                                                    {{ $flightvalue['Segment'][0]['DepartureTime'] }}</h3>
+                                                                <h6>{{ $flightvalue['from'] }}</h6>
                                                             </div>
                                                         </div>
-                                                    </li>
-
-                                                    <li class="boxbordered">
-                                                        <div class="priceAndDetails">
-                                                            <h3>$393</h3>
-                                                            <small>$2,357.54 one way for 6 travelers</small>
-                                                            <p class="listheading">Economy Basic</p>
-                                                            <p class="cabintitle">Cabin: Economy</p>
-                                                        </div>
-                                                        <div class="seatbagsFlexibility">
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Seat</li>
-                                                                <li><span class="material-icons"> paid </span> Seat choice
-                                                                    for a fee</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Bags</li>
-                                                                <li><span class="greenicon material-icons"> check_circle
-                                                                    </span> Carry-on bag included (15 lbs)</li>
-                                                                <li><span class="material-icons"> close </span> 2 checked
-                                                                    bags included (50 lbs each)</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Flexibility</li>
-                                                                <li><span class="material-icons"> close </span>
-                                                                    Non-refundable</li>
-                                                                <li>
-                                                                    <div class="addtothisflight">
-                                                                        <label><span class="greenicon material-icons">
-                                                                                check_circle </span> Change fee: </label>
-                                                                        <small>$639</small>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="priceDrop">
-                                                                <h6><span></span>Price Drop Protection <a
-                                                                        href="#!"><span class="material-icons">
-                                                                            error_outline
-                                                                        </span></a></h6>
-                                                                <p>We’ll refund the difference if the price drops before you
-                                                                    fly.</p>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        value="" id="checkDefault">
-                                                                    <div class="addtothisflight">
-                                                                        <label class="form-check-label"
-                                                                            for="checkDefault">
-                                                                            Add to this flight
-                                                                        </label>
-                                                                        <span>$39</span>
-                                                                    </div>
-                                                                </div>
-                                                                <button
-                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                                        <div class="flight_search_middel">
+                                                            <div class="flight_right_arrow">
+                                                                <img src="assets/front/img/icon/right_arrow.png"
+                                                                    alt="icon">
+                                                                <h6>{{ $flightvalue['totalStopsName'] }}
+                                                                    {{ $flightvalue['totalStopsName'] != 'Non-Stop' ? '(' . $flightvalue['Segment'][0]['ArrivalAirportLocationCode'] . ')' : '' }}
+                                                                </h6>
+                                                                <p>{{ $flightvalue['totalJourneyDuration'] }} </p>
+                                                            </div>
+                                                            <div class="flight_search_destination">
+                                                                <p>To</p>
+                                                                <h3>{{ $flightvalue['tocode'] }} -
+                                                                    {{ $flightvalue['Segment'][count($flightvalue['Segment']) - 1]['ArrivalTime'] }}
+                                                                </h3>
+                                                                <h6>{{ $flightvalue['to'] }} </h6>
                                                             </div>
                                                         </div>
-                                                    </li>
-
-                                                    <li class="boxbordered">
-                                                        <div class="priceAndDetails">
-                                                            <h3>$393</h3>
-                                                            <small>$2,357.54 one way for 6 travelers</small>
-                                                            <p class="listheading">Economy Basic</p>
-                                                            <p class="cabintitle">Cabin: Economy</p>
-                                                        </div>
-                                                        <div class="seatbagsFlexibility">
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Seat</li>
-                                                                <li><span class="material-icons"> paid </span> Seat choice
-                                                                    for a fee</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Bags</li>
-                                                                <li><span class="greenicon material-icons"> check_circle
-                                                                    </span> Carry-on bag included (15 lbs)</li>
-                                                                <li><span class="material-icons"> close </span> 2 checked
-                                                                    bags included (50 lbs each)</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Flexibility</li>
-                                                                <li><span class="material-icons"> close </span>
-                                                                    Non-refundable</li>
-                                                                <li>
-                                                                    <div class="addtothisflight">
-                                                                        <label><span class="greenicon material-icons">
-                                                                                check_circle </span> Change fee: </label>
-                                                                        <small>$639</small>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="priceDrop">
-                                                                <h6><span></span>Price Drop Protection <a
-                                                                        href="#!"><span class="material-icons">
-                                                                            error_outline
-                                                                        </span></a></h6>
-                                                                <p>We’ll refund the difference if the price drops before you
-                                                                    fly.</p>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        value="" id="checkDefault">
-                                                                    <div class="addtothisflight">
-                                                                        <label class="form-check-label"
-                                                                            for="checkDefault">
-                                                                            Add to this flight
-                                                                        </label>
-                                                                        <span>$39</span>
-                                                                    </div>
-                                                                </div>
-                                                                <button
-                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="boxbordered">
-                                                        <div class="priceAndDetails">
-                                                            <h3>$393</h3>
-                                                            <small>$2,357.54 one way for 6 travelers</small>
-                                                            <p class="listheading">Economy Basic</p>
-                                                            <p class="cabintitle">Cabin: Economy</p>
-                                                        </div>
-                                                        <div class="seatbagsFlexibility">
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Seat</li>
-                                                                <li><span class="material-icons"> paid </span> Seat choice
-                                                                    for a fee</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Bags</li>
-                                                                <li><span class="greenicon material-icons"> check_circle
-                                                                    </span> Carry-on bag included (15 lbs)</li>
-                                                                <li><span class="material-icons"> close </span> 2 checked
-                                                                    bags included (50 lbs each)</li>
-                                                            </ul>
-                                                            <ul class="comntitle">
-                                                                <li class="listheading">Flexibility</li>
-                                                                <li><span class="material-icons"> close </span>
-                                                                    Non-refundable</li>
-                                                                <li>
-                                                                    <div class="addtothisflight">
-                                                                        <label><span class="greenicon material-icons">
-                                                                                check_circle </span> Change fee: </label>
-                                                                        <small>$639</small>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="priceDrop">
-                                                                <h6><span></span>Price Drop Protection <a
-                                                                        href="#!"><span class="material-icons">
-                                                                            error_outline
-                                                                        </span></a></h6>
-                                                                <p>We’ll refund the difference if the price drops before you
-                                                                    fly.</p>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        value="" id="checkDefault">
-                                                                    <div class="addtothisflight">
-                                                                        <label class="form-check-label"
-                                                                            for="checkDefault">
-                                                                            Add to this flight
-                                                                        </label>
-                                                                        <span>$39</span>
-                                                                    </div>
-                                                                </div>
-                                                                <button
-                                                                    class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @php
-                                    $i++
-                                @endphp
-                                 @endforeach
-
-
-                                <!-- Flight Search Item -->
-                                {{-- <div class="flight_search_item_wrappper">
-                                    <div class="flight_search_items">
-                                        <div class="multi_city_flight_lists">
-                                            <div class="flight_multis_area_wrapper">
-                                                <div class="flight_search_left">
-                                                    <div class="flight_logo">
-                                                        <img src="assets/img/common/filght.svg" alt="img">
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>From</p>
-                                                        <h3>New York</h3>
-                                                        <h6>JFK - John F. Kennedy International...</h6>
                                                     </div>
                                                 </div>
-                                                <div class="flight_search_middel">
-                                                    <div class="flight_right_arrow">
-                                                        <img src="assets/img/icon/right_arrow.png" alt="icon">
-                                                        <h6>Non-stop</h6>
-                                                        <p>01h 05minute </p>
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>To</p>
-                                                        <h3>London </h3>
-                                                        <h6>LCY, London city airport </h6>
-                                                    </div>
+                                                <div class="flight_search_right">
+                                                    <h2>${{ number_format($flightvalue['FareBreakdown'][0]['TotalFarePerPassenger'], 2) }}
+                                                    </h2>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="flight_search_right">
-                                            <h2>$7,560<sup>*20% OFF</sup></h2>
-                                            <p>*Discount applicable on some conditions</p>
-                                        </div>
                                     </div>
-
-                                </div>
-                                <!-- Flight Search Item -->
-                                <div class="flight_search_item_wrappper">
-                                    <div class="flight_search_items">
-                                        <div class="multi_city_flight_lists">
-                                            <div class="flight_multis_area_wrapper">
-                                                <div class="flight_search_left">
-                                                    <div class="flight_logo">
-                                                        <img src="assets/img/common/filght.svg" alt="img">
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>From</p>
-                                                        <h3>New York</h3>
-                                                        <h6>JFK - John F. Kennedy International...</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="flight_search_middel">
-                                                    <div class="flight_right_arrow">
-                                                        <img src="assets/img/icon/right_arrow.png" alt="icon">
-                                                        <h6>Non-stop</h6>
-                                                        <p>01h 05minute </p>
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>To</p>
-                                                        <h3>London </h3>
-                                                        <h6>LCY, London city airport </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flight_search_right">
-                                            <h2>$7,560<sup>*20% OFF</sup></h2>
-                                            <p>*Discount applicable on some conditions</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- Flight Search Item -->
-                                <div class="flight_search_item_wrappper">
-                                    <div class="flight_search_items">
-                                        <div class="multi_city_flight_lists">
-                                            <div class="flight_multis_area_wrapper">
-                                                <div class="flight_search_left">
-                                                    <div class="flight_logo">
-                                                        <img src="assets/img/common/filght.svg" alt="img">
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>From</p>
-                                                        <h3>New York</h3>
-                                                        <h6>JFK - John F. Kennedy International...</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="flight_search_middel">
-                                                    <div class="flight_right_arrow">
-                                                        <img src="assets/img/icon/right_arrow.png" alt="icon">
-                                                        <h6>Non-stop</h6>
-                                                        <p>01h 05minute </p>
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>To</p>
-                                                        <h3>London </h3>
-                                                        <h6>LCY, London city airport </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flight_search_right">
-                                            <h2>$7,560<sup>*20% OFF</sup></h2>
-                                            <p>*Discount applicable on some conditions</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- Flight Search Item -->
-                                <div class="flight_search_item_wrappper">
-                                    <div class="flight_search_items">
-                                        <div class="multi_city_flight_lists">
-                                            <div class="flight_multis_area_wrapper">
-                                                <div class="flight_search_left">
-                                                    <div class="flight_logo">
-                                                        <img src="assets/img/common/filght.svg" alt="img">
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>From</p>
-                                                        <h3>New York</h3>
-                                                        <h6>JFK - John F. Kennedy International...</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="flight_search_middel">
-                                                    <div class="flight_right_arrow">
-                                                        <img src="assets/img/icon/right_arrow.png" alt="icon">
-                                                        <h6>Non-stop</h6>
-                                                        <p>01h 05minute </p>
-                                                    </div>
-                                                    <div class="flight_search_destination">
-                                                        <p>To</p>
-                                                        <h3>London </h3>
-                                                        <h6>LCY, London city airport </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flight_search_right">
-                                            <h2>$7,560<sup>*20% OFF</sup></h2>
-                                            <p>*Discount applicable on some conditions</p>
-                                        </div>
-                                    </div>
-
-                                </div> --}}
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach
                             </div>
                             <div class="load_more_flight">
-                                <button class="btn btn_md"><i class="fas fa-spinner fa-spin"></i> Load more..</button>
+                                <button id="toggleFlightBtn" class="btn btn_md btn_theme" onclick="toggleFlights()"><i
+                                        class="fas fa-spinner fa-spin"></i> Load more..</button>
                             </div>
                         </div>
                     </div>
@@ -2297,5 +1783,67 @@
             </div>
         </div>
     </section>
+    <script>
+        function toggleAirlines() {
+            const extraItems = document.querySelectorAll('.extra-airline');
+            const toggleBtn = document.querySelector('.show-more-toggle');
+            const isHidden = extraItems[0].classList.contains('d-none');
+
+            extraItems.forEach(item => {
+                item.classList.toggle('d-none');
+            });
+
+            toggleBtn.textContent = isHidden ? 'Show Less' : 'Show More';
+        }
+    </script>
+    <script>
+        function toggleFlights() {
+            const hiddenFlights = document.querySelectorAll('.extra-flight');
+            const btn = document.getElementById('toggleFlightBtn');
+
+            const isHidden = hiddenFlights[0].classList.contains('d-none');
+
+            hiddenFlights.forEach(el => el.classList.toggle('d-none'));
+
+            btn.innerHTML = isHidden ?
+                '<i class="fas fa-minus"></i> Show Less' :
+                '<i class="fas fa-spinner fa-spin"></i> Load More';
+        }
+    </script>
+    <script>
+        const checkboxes = document.querySelectorAll('.form-check-input');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterFlights);
+        });
+
+        function getCheckedValues(namePrefix) {
+            return Array.from(document.querySelectorAll(`input[id^="${namePrefix}"]:checked`))
+                .map(cb => cb.value);
+        }
+
+        function filterFlights() {
+            const selectedStops = getCheckedValues('stop_');
+            const selectedAirlines = getCheckedValues('airline_');
+            const selectedRefunds = getCheckedValues('refund_');
+
+            const flights = document.querySelectorAll('.flight-item');
+
+            flights.forEach(flight => {
+                const stop = flight.getAttribute('data-stops');
+                const airline = flight.getAttribute('data-airline');
+                const refund = flight.getAttribute('data-refund');
+
+                const matchStop = selectedStops.length === 0 || selectedStops.includes(stop);
+                const matchAirline = selectedAirlines.length === 0 || selectedAirlines.includes(airline);
+                const matchRefund = selectedRefunds.length === 0 || selectedRefunds.includes(refund);
+
+                if (matchStop && matchAirline && matchRefund) {
+                    flight.classList.remove('d-none');
+                } else {
+                    flight.classList.add('d-none');
+                }
+            });
+        }
+    </script>
 
 @endsection
