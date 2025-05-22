@@ -3229,7 +3229,7 @@ section {
 /* --Common Banner-- */
 #common_banner {
     background-image: url('../img/common/bannerInner.jpg');
-    padding: 200px 0 130px 0;
+    padding: 200px 0 72px 0;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -11439,7 +11439,8 @@ ul.choosedepartList {
  .offcanvas.offcanvas-end{
     max-width: 60%;
     width: unset;
-    z-index: 99999999;
+    z-index: 9999;
+    box-shadow: 4px 20px 33px rgba(0, 0, 0, 0.2);
  }
  .flightIcons {
     margin-top: 6px;
@@ -11481,7 +11482,7 @@ ul.comntitle li {
     display: flex;
 }
 ul.comntitle li span {
-    font-size: 20px;
+    font-size: 22px;
     margin-right: 6px;
 }
 .greenicon{
@@ -11547,8 +11548,7 @@ ul.comntitle li.listheading{
     width: 100%;
  }
  .addtothisflight label {
-    display: flex
-;
+    display: flex;
 }
  .appendSelect .form-control{
     -webkit-appearance: auto;
@@ -11569,4 +11569,225 @@ button.btn.commonBtn{
     font-size: 15px;
     padding: 5px 20px;
     font-weight: 500;
+}
+.modalHeader .btn-close{
+    box-shadow: 0 2px .75rem rgb(12 14 28 / 40%);
+    border-radius: 50%;
+    padding: 12px;
+    height: 18px;
+    width: 18px;
+}
+.modalHeader .btn-close {
+    /* margin: -1rem 0rem .5rem auto; */
+}
+.savingsrewardsText{
+    font-size: 12px;
+    color: #000;
+    line-height: 18px;
+    padding-top: 16px;
+}
+.nothakstextColor:hover{
+    color: #00f;
+}
+
+.sectionFlightdetails{
+    padding: 80px 0;
+}
+.borderedColor{
+    padding: 20px;
+    border: 1px solid #dfe0e4;
+    border-radius: 1rem
+}
+.changeflightdetails{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.changeflightdetails .flightBtn{
+    background-color: transparent;
+    color: #123c68;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+.allsameheading{
+    font-size: 20px;
+    font-weight: 500;
+    color: #0a2848;
+}
+.fontsamll{
+    font-size: 12px;
+}
+.airInaDate{
+
+}
+.contryImg{
+    width: 30px;
+}
+.aboveAverage{
+    background-color: #ddd;
+    padding: 4px 10px;
+    display: inline-block;
+    line-height: 20px;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #000;
+    font-weight: 500;
+}
+.aboveflightdetail ul.comntitle li {
+    padding: 6px 0;
+}
+.summaryTable{
+    font-size: 13px;
+}
+.tableborder{
+    border-top: 1px solid #000;
+}
+.padtp{
+    padding-top: 14px;
+    display: block;
+}
+.padbtm{
+    padding-bottom: 14px;
+    display: block;
+}
+.fltdetails{
+    background-color: #f3f6fd;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 4px;
+}
+.terminal1{
+    display: flex;
+    justify-content: space-between;
+}
+.travelTime{
+    font-size: 13px;
+    font-weight: 400;
+    color: #9b9b9b;
+    margin-top: 20px;
+}
+span.order-track-status-line.timeLine {
+    margin: 7px;
+}
+
+/* .order-track-status {
+    margin-right: 1.5rem;
+    position: relative;
+}
+.order-track-status-dot {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #f05a00;
+}
+.order-track-status-line {
+    display: block;
+    margin: 0 auto;
+    width: 2px;
+    height: 7rem;
+    background: #f05a00;
+} */
+
+
+.order-track-text{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.order-track-step {
+  display: flex;
+  height: 5rem;
+}
+
+.order-track-step:last-child {
+  overflow: hidden;
+  height: 4rem;
+}
+
+.order-track-step:last-child .order-track-status span:last-of-type {
+  display: none;
+}
+
+.order-track-status {
+  margin-right: 1.5rem;
+  position: relative;
+}
+
+.order-track-status-dot {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #d7e04e;
+}
+
+.order-track-status-line {
+  display: block;
+  margin: 0 auto;
+  width: 2px;
+  height: 5rem;
+  background: #143d69;
+}
+
+.order-track-text-stat {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.order-track-text-sub {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.reachStopStart{
+    line-height: 24px;
+}
+.rechTimeDate{
+    text-align: end;
+    line-height: 24px;
+}
+.secMoreDetails{
+    padding-top: 20px;
+}
+.amenities .fontsamll {
+    line-height: 26px;
+    display: flex;
+}
+.textRight{
+ text-align: end;
+}
+.amenities h6{
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    margin-top: 8px;
+}
+
+.amenitiesic0n{
+    font-size: 22px;
+    color: #143d69;
+    line-height: 24px;
+    margin-right: 8px;
+}
+.emissions{
+    display: flex;
+}
+.emissions span {
+    line-height: 18px;
+    margin-left: 10px;
+    color: #143d69;
+}
+.updateTime{
+    padding: 4px 20px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    line-height: 28px;
+}
+.updateTime .upadetText{
+    display: flex;
+}
+.fontsamll.upadetText span {
+    line-height: 28px;
 }

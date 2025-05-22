@@ -14,17 +14,15 @@ $('.btn-add,.btn-subtract').on('click touchstart', function () {
 
 function addValue(a) {
     const sum = a++;
-    $('.final-count').text(`${sum} Passenger`);
+    $('.final-count').text(`${sum}`);
 }
 
-var i = 1;
-var j = 0;
-var k = 0;
+var i = 0;
 
 $('.btn-add').on('click touchstart', function () {
     const value = ++i;
     $('.pcount').text(`${value}`);
-    addValue(value+j+k);
+    addValue(value);
     event.stopPropagation();
     event.preventDefault();
 });
@@ -38,7 +36,7 @@ $('.btn-subtract').on('click touchstart', function () {
     } else {
         const value = --i;
         $('.pcount').text(`${value}`);
-        addValue(value+j+k);
+        addValue(value);
     }
     event.stopPropagation();
     event.preventDefault();
@@ -46,86 +44,49 @@ $('.btn-subtract').on('click touchstart', function () {
 
 
 $('.btn-add-c').on('click touchstart', function () {
-    if (j < 4) {
-        const value = ++j;
-        $('.ccount').text(`${value}`);
-        addValue(value + i + k);
-        if (j === 4) {
-            $(this).prop('disabled', true); // disable the button
-        }
-    }
+    const value = ++i;
+    $('.ccount').text(`${value}`);
+    addValue(value);
     event.stopPropagation();
     event.preventDefault();
-    // const value = ++j;
-    // $('.ccount').text(`${value}`);
-    // addValue(value+i+k);
-    // event.stopPropagation();
-    // event.preventDefault();
 });
 
 
 $('.btn-subtract-c').on('click touchstart', function () {
-    if (j > 0) {
-        const value = --j;
+    if (i == 1) {
+        $('.ccount').text(1);
+        addValue(1);
+    } else {
+        const value = --i;
         $('.ccount').text(`${value}`);
-        addValue(value + i + k);
-
-        // Re-enable add button when going below 4
-        $('.btn-add-c').prop('disabled', false);
+        addValue(value);
     }
-
     event.stopPropagation();
     event.preventDefault();
-    // if (j == 0) {
-    //     $('.ccount').text(0);
-    //     addValue(1);
-    // } else {
-    //     const value = --j;
-    //     $('.ccount').text(`${value}`);
-    //     addValue(value+i+k);
-    // }
-    // event.stopPropagation();
-    // event.preventDefault();
 });
 
 
 
 $('.btn-add-in').on('click touchstart', function () {
-    if (k < 2) {
-        const value = ++k;
-        $('.incount').text(`${value}`);
-        addValue(value+i+j);
-        if (k === 2) {
-            $(this).prop('disabled', true); // disable the button
-        }
-    }
+    const value = ++i;
+    $('.incount').text(`${value}`);
+    addValue(value);
     event.stopPropagation();
     event.preventDefault();
 });
 
 
 $('.btn-subtract-in').on('click touchstart', function () {
-    if (k > 0) {
-        const value = --k;
+    if (i == 1) {
+        $('.incount').text(1);
+        addValue(1);
+    } else {
+        const value = --i;
         $('.incount').text(`${value}`);
-        addValue(value + i + j);
-
-        // Re-enable add button when going below 4
-        $('.btn-add-in').prop('disabled', false);
+        addValue(value);
     }
-
     event.stopPropagation();
     event.preventDefault();
-    // if (k == 0) {
-    //     $('.incount').text(0);
-    //     addValue(1);
-    // } else {
-    //     const value = --k;
-    //     $('.incount').text(`${value}`);
-    //     addValue(value+i+j);
-    // }
-    // event.stopPropagation();
-    // event.preventDefault();
 });
 
 

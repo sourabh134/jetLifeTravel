@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="assets/front/css/animate.min.css" />
     <link rel="stylesheet" href="assets/front/css/fontawesome.all.min.css" />
     <link rel="stylesheet" href="../../../../../cdn.jsdelivr.net/npm/bootstrap-icons%401.8.2/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Icons+Outlined&family=Material+Icons+Round&family=Material+Icons+Sharp&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/front/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="assets/front/css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="assets/front/css/navber.css" />

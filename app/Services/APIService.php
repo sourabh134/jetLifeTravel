@@ -114,15 +114,15 @@ class APIService
                 "journeyType": "OneWay",
                 "OriginDestinationInfo": [
                     {
-                        "departureDate": "'.$departure.'",
-                        "airportOriginCode": "'.$from.'",
-                        "airportDestinationCode": "'.$to.'"
+                        "departureDate": "' . $departure . '",
+                        "airportOriginCode": "' . $from . '",
+                        "airportDestinationCode": "' . $to . '"
                     }
                 ],
-                "class": "'.ucfirst(strtolower($cabinClass)).'",
-                "adults": '.$adults.',
-                "childs": '.$children.',
-                "infants": '.$infantInLap.'
+                "class": "' . ucfirst(strtolower($cabinClass)) . '",
+                "adults": ' . $adults . ',
+                "childs": ' . $children . ',
+                "infants": ' . $infantInLap . '
             }',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json'
@@ -130,11 +130,15 @@ class APIService
         ));
 
         $response = curl_exec($curl);
+        $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
         // echo"<pre>";
         // print_r($response);
         // die;
-        return json_decode($response, true);
+        return [
+            'status_code' => $http_status,
+            'response' => json_decode($response, true)
+        ];
     }
 
     public static function flightsearchreturn()
