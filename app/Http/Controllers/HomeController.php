@@ -61,9 +61,9 @@ class HomeController extends Controller
             // Access the value
             $cabinClass = $optionData['cabinclass'];
             $flightsearchoneway = APIService::flightsearchoneway($journeyType, $departure, $to, $from, $cabinClass, $adults, $children, $infantInLap);
-            // print_r($flightsearchoneway);
+            // print_r($flightsearchoneway['response']);
             // die;
-            if ($flightsearchoneway['status_code'] == 200) {
+            if (!isset($flightsearchoneway['response']['Errors'])) {
                 $totalFlight = $flightsearchoneway['response']['AirSearchResponse']['AirSearchResult']['FareItineraries'];
                 $flightsession = $flightsearchoneway['response']['AirSearchResponse']['session_id'];
                 $airlineStats = [];
@@ -102,6 +102,7 @@ class HomeController extends Controller
                     $hours = floor($journeyDuration / 60);
                     $minutes = $journeyDuration % 60;
                     $formattedDuration = $hours . "h " . $minutes . "m";
+
 
                     // Store flight details
                     $air = [];
@@ -144,11 +145,45 @@ class HomeController extends Controller
                         $seg['AirLineLogo'] = "https://travelnext.works/api/airlines/" . $fs['MarketingAirlineCode'] . ".gif";
                         $seg['SeatsRemaining'] = $segment['SeatsRemaining']['Number'] ?? 'N/A';
                         $seg['MealCode'] = $fs['MealCode'] ?? 'Not specified';
+                        // Calculate layover (if not the last segment)
+                        if ($i < count($segments) - 1) {
+                            $arrival = strtotime($fs['ArrivalDateTime']);
+                            $nextDeparture = strtotime($segments[$i + 1]['FlightSegment']['DepartureDateTime']);
+
+                            $layoverMinutes = ($nextDeparture - $arrival) / 60;
+                            $hours = floor($layoverMinutes / 60);
+                            $minutes = $layoverMinutes % 60;
+
+                            $seg['Layover'] = $hours . 'h ' . $minutes . 'm';
+                        } else {
+                            $seg['Layover'] = null; // No layover after last segment
+                        }
 
                         $segmatArray[] = $seg;
                     }
 
                     $air['Segment'] = $segmatArray;
+                     // Replace with your actual array
+
+                    $departureTime = null;
+                    $arrivalTime = null;
+
+                    foreach ($segmatArray as $index => $segmentts) {
+                        if ($index === 0) {
+                            // First segment's departure time
+                            $departureTime = strtotime($segmentts['Departure']);
+                        }
+                        // Always update arrival time to the last segment's arrival
+                        $arrivalTime = strtotime($segmentts['Arrival']);
+                    }
+
+                    // Calculate total travel time in minutes
+                    $totalTravelMinutes = ($arrivalTime - $departureTime) / 60;
+                    $hours = floor($totalTravelMinutes / 60);
+                    $minutes = $totalTravelMinutes % 60;
+
+                    $totalTravelTime = $hours . "h " . $minutes . "m";
+                    $air['totalTravelTime'] = $totalTravelTime;
                     // Add FareBreakdown
                     $fareBreakdown = $flightvalue['FareItinerary']['AirItineraryFareInfo']['FareBreakdown'];
                     $fareDetails = [];
@@ -215,8 +250,8 @@ class HomeController extends Controller
                 $stopStats = [];
                 $refundStats = [];
             }
-            //echo "<pre>";
-            // print_r($airlineStats);
+            // echo "<pre>";
+            //print_r($airlineStats);
             // print_r($stopStats);
             // print_r($refundStats);
             // print_r($flightSearch);
