@@ -29,6 +29,7 @@ Route::get('/login',[UserController::class,'login']);
 Route::post('/storeUser',[UserController::class,'storeUser'])->name('user.userstores');
 Route::post('/search-airport', [HomeController::class, 'searchAirport']);
 Route::get('/Flights-Search', [HomeController::class, 'flightSearchResult']);
+Route::get('/Review-Flight', [HomeController::class, 'reviewflight']);
 //Backend
 Route::get('/admin',[AdminController::class,'admin'])->name('admin');
 Route::post('/adminLogin',[AdminController::class,'adminLogin'])->name('adminlogin');

@@ -2,6 +2,11 @@
 @section('title', $from . ' to ' . $to . ' flights')
 
 @section('content')
+    <style>
+        .flight-item a {
+            color: #000;
+        }
+    </style>
     <!-- search -->
     <div class="search-overlay">
         <div class="d-table">
@@ -1695,53 +1700,56 @@
                                         data-stops="{{ $flightvalue['totalStopsName'] }}"
                                         data-airline="{{ $flightvalue['Segment'][0]['AirlineName'] }}"
                                         data-refund="{{ $flightvalue['IsRefundable'] }}">
-                                        <div class="flight_search_item_wrappper">
-                                            <div class="flight_search_items" data-bs-toggle="offcanvas"
-                                                data-bs-target="#offcanvasRight{{ $i }}"
-                                                aria-controls="offcanvasRight{{ $i }}">
-                                                <div class="multi_city_flight_lists">
-                                                    <div class="flight_multis_area_wrapper">
-                                                        <div class="flight_search_left">
-                                                            <div class="flight_logo">
-                                                                <img src="{{ $flightvalue['Segment'][0]['AirLineLogo'] }}"
-                                                                    alt="img"><br />
-                                                                <span>{{ $flightvalue['Segment'][0]['AirlineName'] }}</span>
+                                        <a href="{{ url('/Review-Flight?key=' . base64_encode(json_encode($flightvalue))) }}">
+                                            <div class="flight_search_item_wrappper">
+                                                <div class="flight_search_items" data-bs-toggle="offcanvas"
+                                                    data-bs-target="#offcanvasRight{{ $i }}"
+                                                    aria-controls="offcanvasRight{{ $i }}">
+                                                    <div class="multi_city_flight_lists">
+                                                        <div class="flight_multis_area_wrapper">
+                                                            <div class="flight_search_left">
+                                                                <div class="flight_logo">
+                                                                    <img src="{{ $flightvalue['Segment'][0]['AirLineLogo'] }}"
+                                                                        alt="img"><br />
+                                                                    <span>{{ $flightvalue['Segment'][0]['AirlineName'] }}</span>
+                                                                </div>
+                                                                <div class="flight_search_destination">
+                                                                    <p>From</p>
+                                                                    <h3>{{ $flightvalue['fromcode'] }} -
+                                                                        {{ $flightvalue['Segment'][0]['DepartureTime'] }}
+                                                                    </h3>
+                                                                    <h6>{{ $flightvalue['from'] }}</h6>
+                                                                </div>
                                                             </div>
-                                                            <div class="flight_search_destination">
-                                                                <p>From</p>
-                                                                <h3>{{ $flightvalue['fromcode'] }} -
-                                                                    {{ $flightvalue['Segment'][0]['DepartureTime'] }}</h3>
-                                                                <h6>{{ $flightvalue['from'] }}</h6>
-                                                            </div>
-                                                        </div>
-                                                        <div class="flight_search_middel">
-                                                            <div class="flight_right_arrow">
-                                                                <img src="assets/front/img/icon/right_arrow.png"
-                                                                    alt="icon">
-                                                                <h6>{{ $flightvalue['totalStopsName'] }}
-                                                                    {{ $flightvalue['totalStopsName'] != 'Non-Stop' ? '(' . $flightvalue['Segment'][0]['ArrivalAirportLocationCode'] . ')' : '' }}
-                                                                </h6>
-                                                                <p>{{ $flightvalue['totalTravelTime'] }} </p>
-                                                            </div>
-                                                            <div class="flight_search_destination">
-                                                                <p>To</p>
-                                                                <h3>{{ $flightvalue['tocode'] }} -
-                                                                    {{ $flightvalue['Segment'][count($flightvalue['Segment']) - 1]['ArrivalTime'] }}
-                                                                </h3>
-                                                                <h6>{{ $flightvalue['to'] }} </h6>
+                                                            <div class="flight_search_middel">
+                                                                <div class="flight_right_arrow">
+                                                                    <img src="assets/front/img/icon/right_arrow.png"
+                                                                        alt="icon">
+                                                                    <h6>{{ $flightvalue['totalStopsName'] }}
+                                                                        {{ $flightvalue['totalStopsName'] != 'Non-Stop' ? '(' . $flightvalue['Segment'][0]['ArrivalAirportLocationCode'] . ')' : '' }}
+                                                                    </h6>
+                                                                    <p>{{ $flightvalue['totalTravelTime'] }} </p>
+                                                                </div>
+                                                                <div class="flight_search_destination">
+                                                                    <p>To</p>
+                                                                    <h3>{{ $flightvalue['tocode'] }} -
+                                                                        {{ $flightvalue['Segment'][count($flightvalue['Segment']) - 1]['ArrivalTime'] }}
+                                                                    </h3>
+                                                                    <h6>{{ $flightvalue['to'] }} </h6>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="flight_search_right">
-                                                    <h2>${{ number_format($flightvalue['FareBreakdown'][0]['TotalFarePerPassenger'], 2) }}
-                                                    </h2>
-                                                    <button type="button" class="btn flightBtn btn_md"
-                                                        onclick='flightdetails(@json($flightvalue["Segment"]), "{{ $flightvalue["cabinClassCode"] }}", "{{ $flightvalue["cabinBaggage"] }}", "{{ $flightvalue["from"] }}", "{{ $flightvalue["to"] }}")'>Flight
-                                                        details</button>
+                                                    <div class="flight_search_right">
+                                                        <h2>${{ number_format($flightvalue['FareBreakdown'][0]['TotalFarePerPassenger'], 2) }}
+                                                        </h2>
+                                                        <button type="button" class="btn flightBtn btn_md"
+                                                            onclick='flightdetails(@json($flightvalue['Segment']), "{{ $flightvalue['cabinClassCode'] }}", "{{ $flightvalue['cabinBaggage'] }}", "{{ $flightvalue['from'] }}", "{{ $flightvalue['to'] }}")'>Flight
+                                                            details</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     @php
                                         $i++;
@@ -2090,19 +2098,19 @@
                 cabinname = "First";
             }
             console.log(cabinname);
-                // Clear previous content
-                const container = document.querySelector(".flightlist");
+            // Clear previous content
+            const container = document.querySelector(".flightlist");
             container.innerHTML = "";
 
             segments.forEach((segment, index) => {
-                const layoverHtml = segment.Layover
-            ? `<div class="updateTime">
+                const layoverHtml = segment.Layover ?
+                    `<div class="updateTime">
                     <div class="fontsamll upadetText">
                         <span class="amenitiesic0n material-icons">update</span>
                         <strong>${segment.Layover} layover in ${segment.ArrivalAirportLocationCode}</strong>
                     </div>
-               </div>`
-            : ""; // Empty if no layover
+               </div>` :
+                    ""; // Empty if no layover
                 const html = `<div class="flightFirst ${index > 0 ? 'mt-4' : ''}">
                                                 <label class="fontsamll">Flight ${index + 1} of ${segments.length}</label>
                                                 <div class="fltdetails">
@@ -2160,18 +2168,12 @@
                                                     <div class="col-md-6 airmore aircraftAirbus">
                                                         <table class="table table-borderless">
                                                             <body class="fontsamll">
-                                                                <tr>
-                                                                    <td>Aircraft</td>
-                                                                    <td class="textRight"><strong>Airbus A320-200neo</strong> </td>
-                                                                </tr>
+
                                                                 <tr>
                                                                     <td>Cabin</td>
                                                                     <td class="textRight"><strong>${cabinname}</strong> </td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td>Distance</td>
-                                                                    <td class="textRight"><strong>708 mi</strong> </td>
-                                                                </tr>
+
                                                             </body>
                                                         </table>
                                                     </div>

@@ -85,8 +85,10 @@ class HomeController extends Controller
                     // Get fare breakdown, cabin baggage, cabin class code
                     $fareBreakdown = $flightvalue['FareItinerary']['AirItineraryFareInfo']['FareBreakdown'];
                     $cabinBaggageList = [];
+                    $Baggage = [];
                     foreach ($fareBreakdown as $fare) {
                         $cabinBaggageList[] = $fare['CabinBaggage'][0] ?? 'N/A';
+                        $Baggage[] = $fare['Baggage'][0] ?? 'N/A';
                     }
                     $cabinClassCode = $flightvalue['FareItinerary']['OriginDestinationOptions'][0]['OriginDestinationOption'][0]['FlightSegment']['CabinClassCode'] ?? 'N/A';
 
@@ -123,12 +125,12 @@ class HomeController extends Controller
                     $air['dateTime'] = $lastSegment['FlightSegment']['ArrivalDateTime'];
                     $air['cabinClassCode'] = $cabinClassCode;
                     $air['cabinBaggage'] =  current($cabinBaggageList); // in case multiple passengers with different values
+                    $air['Baggage'] =  current($Baggage); // in case multiple passengers with different values
 
                     // Segment details
                     $segmatArray = [];
                     foreach ($segments as $i => $segment) {
                         $fs = $segment['FlightSegment'];
-
                         $seg['Segment'] = ($i + 1);
                         $seg['Airline'] = $fs['MarketingAirlineName'] . " (" . $fs['MarketingAirlineCode'] . ")";
                         $seg['Airlinecode'] = $fs['MarketingAirlineCode'];
@@ -163,7 +165,7 @@ class HomeController extends Controller
                     }
 
                     $air['Segment'] = $segmatArray;
-                     // Replace with your actual array
+                    // Replace with your actual array
 
                     $departureTime = null;
                     $arrivalTime = null;
@@ -250,7 +252,7 @@ class HomeController extends Controller
                 $stopStats = [];
                 $refundStats = [];
             }
-            // echo "<pre>";
+            //echo "<pre>";
             //print_r($airlineStats);
             // print_r($stopStats);
             // print_r($refundStats);
@@ -258,5 +260,29 @@ class HomeController extends Controller
             // die;
         }
         return view('front.flight-search-result', compact('flightSearch', 'from', 'to', 'airlineStats', 'stopStats', 'refundStats'));
+    }
+
+    public function reviewflight(Request $request)
+    {
+        $flightReview = json_decode(base64_decode($request->key));
+        // echo "<pre>";
+        // print_r($flightReview);
+        // die;
+        $fromname =  explode(",",$flightReview->from);
+        $fromCityname = current($fromname);
+        $toname =  explode(",",$flightReview->to);
+        $toCityname = current($toname);
+
+        //$revalidate = APIService::revalidate($flightReview->flightsession, $flightReview->FareSourceCode);
+        $revalidate = [];
+        // $fare_rules = APIService::fare_rules($flightReview->flightsession, $flightReview->FareSourceCode);
+        // print_r($fare_rules);
+        // die;
+        $fare_rules = [];
+        //if (!empty($revalidate)) {
+            return view('front.review_your_trip',compact('flightReview','revalidate','fare_rules','fromCityname','toCityname'));
+        // } else {
+        //     return redirect('/');
+        // }
     }
 }
