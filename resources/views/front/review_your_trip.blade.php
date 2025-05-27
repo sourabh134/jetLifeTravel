@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="common_bannner_text">
-                        <h2>{{$flightReview->Segment[0]->AirlineName}}</h2>
+                        <h2>{{ $flightReview->Segment[0]->AirlineName }}</h2>
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><span><i class="fas fa-circle"></i></span> Review your trip</li>
@@ -49,15 +49,20 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="aboveflightdetail borderedColor mb-4">
-                        <h3 class="allsameheading">{{$fromCityname}} to {{$toCityname}}</h3>
-                        <label class="fontsamll">{{$flightReview->Segment[0]->DepartureTime}} - {{$flightReview->Segment[count($flightReview->Segment)-1]->ArrivalTime}} ({{$flightReview->totalTravelTime}}, {{$flightReview->totalStops}} stop)</label>
+                        <h3 class="allsameheading">{{ $fromCityname }} to {{ $toCityname }}</h3>
+                        <label class="fontsamll">{{ $flightReview->Segment[0]->DepartureTime }} -
+                            {{ $flightReview->Segment[count($flightReview->Segment) - 1]->ArrivalTime }}
+                            ({{ $flightReview->totalTravelTime }}, {{ $flightReview->totalStops }} stop)</label>
                         <div class="airInaDate fontsamll">
-                            <span><img class="contryImg" src="{{$flightReview->Segment[0]->AirLineLogo}}" alt="imgIND"></span> {{$flightReview->Segment[0]->AirlineName}} •
-                            {{date('D, d M Y',strtotime($flightReview->Segment[0]->Departure))}}
+                            <span><img class="contryImg" src="{{ $flightReview->Segment[0]->AirLineLogo }}"
+                                    alt="imgIND"></span> {{ $flightReview->Segment[0]->AirlineName }} •
+                            {{ date('D, d M Y', strtotime($flightReview->Segment[0]->Departure)) }}
                         </div>
                         {{-- <p class="aboveAverage fontsamll">Above average CO₂</p> --}}
                         <div class="changeflightdetails">
-                            <button type="button" class="btn flightBtn btn_md" onclick='flightdetails(@json($flightReview->Segment), "{{ $flightReview->cabinClassCode }}", "{{ $flightReview->cabinBaggage }}", "{{ $flightReview->from }}", "{{ $flightReview->to }}")'>Flight details</button>
+                            <button type="button" class="btn flightBtn btn_md"
+                                onclick='flightdetails(@json($flightReview->Segment), "{{ $flightReview->cabinClassCode }}", "{{ $flightReview->cabinBaggage }}", "{{ $flightReview->from }}", "{{ $flightReview->to }}")'>Flight
+                                details</button>
                             {{-- <button type="button" class="btn flightBtn btn_md">Change flight</button> --}}
                         </div>
 
@@ -78,7 +83,8 @@
                                                 <div class="fltdetails">
                                                     <div class="fontsamll mb-4">
                                                         <span>
-                                                            <img class="contryImg" src="assets/img/favicon.png" alt="imgIND">
+                                                            <img class="contryImg" src="assets/img/favicon.png"
+                                                                alt="imgIND">
                                                         </span> <strong>Air India</strong> AI2985
                                                     </div>
                                                     <div class="order-track">
@@ -137,10 +143,12 @@
                                                 <div class="secMoreDetails row">
                                                     <div class="col-md-6 airmore aircraftAirbus">
                                                         <table class="table table-borderless">
+
                                                             <body class="fontsamll">
                                                                 <tr>
                                                                     <td>Aircraft</td>
-                                                                    <td class="textRight"><strong>Airbus A320-200neo</strong> </td>
+                                                                    <td class="textRight"><strong>Airbus
+                                                                            A320-200neo</strong> </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Cabin</td>
@@ -151,33 +159,46 @@
                                                                     <td class="textRight"><strong>708 mi</strong> </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><div class="emissions">Emissions <span class=" amenitiesic0n material-icons"> info</span></div> </td>
-                                                                    <td class="textRight"><p class="aboveAverage fontsamll mt-0">Above average CO₂</p> </td>
+                                                                    <td>
+                                                                        <div class="emissions">Emissions <span
+                                                                                class=" amenitiesic0n material-icons">
+                                                                                info</span></div>
+                                                                    </td>
+                                                                    <td class="textRight">
+                                                                        <p class="aboveAverage fontsamll mt-0">Above
+                                                                            average CO₂</p>
+                                                                    </td>
                                                                 </tr>
                                                             </body>
                                                         </table>
                                                     </div>
                                                     <div class="col-md-6 airmore amenities">
                                                         <h6>Amenities</h6>
-                                                        <div class="fontsamll"> <span class="amenitiesic0n material-icons"> power</span>
-                                                             In-seat power outlet</div>
-                                                        <div class="fontsamll"><span class="amenitiesic0n material-icons">live_tv </span>
-                                                             In-flight entertainment</div>
+                                                        <div class="fontsamll"> <span
+                                                                class="amenitiesic0n material-icons"> power</span>
+                                                            In-seat power outlet</div>
+                                                        <div class="fontsamll"><span
+                                                                class="amenitiesic0n material-icons">live_tv </span>
+                                                            In-flight entertainment</div>
                                                     </div>
 
                                                     <div class="updateTime">
-                                                        <div class="fontsamll upadetText"><span class="amenitiesic0n material-icons">update </span> <strong> 3h 40m layover in Mumbai</strong></div>
-                                                        <div class="fontsamll"> Change planes in Chhatrapati Shivaji Intl.</div>
+                                                        <div class="fontsamll upadetText"><span
+                                                                class="amenitiesic0n material-icons">update </span>
+                                                            <strong> 3h 40m layover in Mumbai</strong></div>
+                                                        <div class="fontsamll"> Change planes in Chhatrapati Shivaji Intl.
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                             <div class="flightFirst mt-4">
+                                            <div class="flightFirst mt-4">
                                                 <label class="fontsamll">Flight 2 of 2</label>
                                                 <div class="fltdetails">
                                                     <div class="fontsamll mb-4">
                                                         <span>
-                                                            <img class="contryImg" src="assets/img/favicon.png" alt="imgIND">
+                                                            <img class="contryImg" src="assets/img/favicon.png"
+                                                                alt="imgIND">
                                                         </span> <strong>Air India</strong> AI2985
                                                     </div>
                                                     <div class="order-track">
@@ -236,10 +257,12 @@
                                                 <div class="secMoreDetails row">
                                                     <div class="col-md-6 airmore aircraftAirbus">
                                                         <table class="table table-borderless">
+
                                                             <body class="fontsamll">
                                                                 <tr>
                                                                     <td>Aircraft</td>
-                                                                    <td class="textRight"><strong>Airbus A320-200neo</strong> </td>
+                                                                    <td class="textRight"><strong>Airbus
+                                                                            A320-200neo</strong> </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Cabin</td>
@@ -250,23 +273,35 @@
                                                                     <td class="textRight"><strong>708 mi</strong> </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><div class="emissions">Emissions <span class=" amenitiesic0n material-icons"> info</span></div> </td>
-                                                                    <td class="textRight"><p class="aboveAverage fontsamll mt-0">Above average CO₂</p> </td>
+                                                                    <td>
+                                                                        <div class="emissions">Emissions <span
+                                                                                class=" amenitiesic0n material-icons">
+                                                                                info</span></div>
+                                                                    </td>
+                                                                    <td class="textRight">
+                                                                        <p class="aboveAverage fontsamll mt-0">Above
+                                                                            average CO₂</p>
+                                                                    </td>
                                                                 </tr>
                                                             </body>
                                                         </table>
                                                     </div>
                                                     <div class="col-md-6 airmore amenities">
                                                         <h6>Amenities</h6>
-                                                        <div class="fontsamll"> <span class="amenitiesic0n material-icons"> power</span>
-                                                             In-seat power outlet</div>
-                                                        <div class="fontsamll"><span class="amenitiesic0n material-icons">live_tv </span>
-                                                             In-flight entertainment</div>
+                                                        <div class="fontsamll"> <span
+                                                                class="amenitiesic0n material-icons"> power</span>
+                                                            In-seat power outlet</div>
+                                                        <div class="fontsamll"><span
+                                                                class="amenitiesic0n material-icons">live_tv </span>
+                                                            In-flight entertainment</div>
                                                     </div>
 
                                                     <div class="updateTime">
-                                                        <div class="fontsamll upadetText"><span class="amenitiesic0n material-icons">update </span> <strong> 3h 40m layover in Mumbai</strong></div>
-                                                        <div class="fontsamll"> Change planes in Chhatrapati Shivaji Intl.</div>
+                                                        <div class="fontsamll upadetText"><span
+                                                                class="amenitiesic0n material-icons">update </span>
+                                                            <strong> 3h 40m layover in Mumbai</strong></div>
+                                                        <div class="fontsamll"> Change planes in Chhatrapati Shivaji Intl.
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,10 +318,10 @@
                         <h3 class="allsameheading">Your fare: Eco Value</h3>
                         <ul class="comntitle mt-3">
                             <li><span class="greenicon material-icons"> check_circle </span>Seat choice included</li>
-                            <li><span class="greenicon material-icons"> check_circle </span>Hand baggage included (15
-                                lbs)</li>
-                            <li><span class="greenicon material-icons"> check_circle </span> 2 checked bags included (50
-                                lbs each)</li>
+                            <li><span class="greenicon material-icons"> check_circle </span>Hand baggage included
+                                ({{ $cabinbag }} kg)</li>
+                            <li><span class="greenicon material-icons"> check_circle </span>1st checked bag included
+                                ({{ $checkedBaggage }} kg)</li>
                             {{-- <li><span class="material-icons"> paid </span> Cancellation fee applies</li>
                             <li><span class="material-icons"> paid </span> Change fee: $293</li> --}}
 
@@ -300,19 +335,21 @@
                         <ul class="comntitle mt-3">
                             <li><span class="greenicon material-icons"> check_circle </span>Seat choice included</li>
                         </ul>
-                        <label class="fontsamll">Purchase seats for this flight through Air India after booking.</label>
+                        <label class="fontsamll">Purchase seats for this flight through
+                            {{ $flightReview->Segment[0]->AirlineName }} after booking.</label>
                     </div>
                     <div class="aboveflightdetail borderedColor mb-4">
                         <h3 class="allsameheading">Bags</h3>
 
                         <ul class="comntitle mt-3">
-                            <li><span class="greenicon material-icons"> check_circle </span>Carry-on bag included (15
-                                lbs)</li>
-                            <li><span class="greenicon material-icons"> check_circle </span>2 checked bags included (50
-                                lbs each)</li>
+                            <li><span class="greenicon material-icons"> check_circle </span>Hand baggage included
+                                ({{ $cabinbag }} kg)</li>
+                            <li><span class="greenicon material-icons"> check_circle </span>1st checked bag included
+                                ({{ $checkedBaggage }} kg)</li>
 
                         </ul>
-                        <label class="fontsamll">Purchase additional bags for this flight through Air India after
+                        <label class="fontsamll">Purchase additional bags for this flight through
+                            {{ $flightReview->Segment[0]->AirlineName }} after
                             booking.</label>
                     </div>
                 </div>
@@ -320,57 +357,67 @@
                     <div class="borderedColor">
                         <h3 class="allsameheading">Price summary</h3>
                         <table class="table table-borderless summaryTable mt-4">
-                            <thead>
-                                <tr>
-                                    <th>Traveler 1: Adult</th>
-                                    <th>$406.25</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Flight</td>
-                                    <td>$169.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Taxes, fees, and charges</td>
-                                    <td>$237.25</td>
-                                </tr>
-                                <tr>
-                                    <th>Traveler 2: Child</th>
-                                    <th>$362.15</th>
-                                </tr>
-                                <tr>
-                                    <td>Flight</td>
-                                    <td>$169.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Taxes, fees, and charges</td>
-                                    <td>$237.25</td>
-                                </tr>
-                                <tr class="tableborder">
-                                    <td><span class="padtp"> Subtotal </span></td>
-                                    <td><span class="padtp">$768.40</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="padbtm">Discount</span></td>
-                                    <td><span class="padbtm">-$23.05</span></td>
-                                </tr>
-                                <tr class="tableborder">
-                                    <td>
-                                        <h4 class="padtp">Trip total</h4>
-                                    </td>
-                                    <td>
-                                        <h4 class="padtp">$745.35</h4>
-                                    </td>
-                                </tr>
-                                <tr colspan="2">
-                                    <td>Rates are quoted in US dollars</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <button class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
-                                    </td>
-                                </tr>
+                            @php
+                                $grandTotal = 0;
+                            @endphp
+
+                            @foreach ($flightReview->FareBreakdown as $FareBreakdownvalue)
+                                @php
+                                    $taxTotal = 0;
+                                    foreach ($FareBreakdownvalue->tax as $tax) {
+                                        $taxTotal += $tax->Amount;
+                                    }
+                                    $fareTotal = $FareBreakdownvalue->BaseFare + $taxTotal;
+                                    $grandTotal += $FareBreakdownvalue->TotalFare; // or use $fareTotal * $FareBreakdownvalue->Quantity;
+                                @endphp
+                                <thead>
+                                    <tr>
+                                        <th>Traveler {{ $FareBreakdownvalue->Quantity }}:
+                                            {{ $FareBreakdownvalue->PassengerType }}
+                                            @if ($FareBreakdownvalue->PassengerType == 'ADT')
+                                                Adult
+                                            @elseif ($FareBreakdownvalue->PassengerType == 'CHD')
+                                                Child
+                                            @elseif ($FareBreakdownvalue->PassengerType == 'INF')
+                                                Infant
+                                            @endif
+                                        </th>
+                                        <th>${{ number_format($FareBreakdownvalue->TotalFare, 2) }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Flight</td>
+                                        <td>${{ number_format($FareBreakdownvalue->BaseFare, 2) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taxes, fees, and charges</td>
+                                        <td>${{ number_format($taxTotal, 2) }}</td>
+                                    </tr>
+                            @endforeach
+
+                            <tr class="tableborder">
+                                <td><span class="padtp"> Subtotal </span></td>
+                                <td><span class="padtp">${{ number_format($grandTotal, 2) }}</span></td>
+                            </tr>
+
+                            <tr class="tableborder">
+                                <td>
+                                    <h4 class="padtp">Trip total</h4>
+                                </td>
+                                <td>
+                                    <h4 class="padtp">${{ number_format($grandTotal, 2) }}</h4>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">Rates are quoted in US dollars</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="sidebaarSelectBtn btn btn_theme btn_md">Select</button>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -491,4 +538,4 @@
             return date.toLocaleDateString('en-US', options);
         }
     </script>
-    @endsection
+@endsection

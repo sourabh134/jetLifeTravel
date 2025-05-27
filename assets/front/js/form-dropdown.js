@@ -13,81 +13,89 @@ $('.btn-add,.btn-subtract').on('click touchstart', function () {
 
 
 function addValue(a) {
-    const sum = a++;
-    $('.final-count').text(`${sum}`);
+    $('.final-count').text(`${a} Passenger`);
 }
 
-var i = 0;
+var i = 1; // Adult (min 1)
+var j = 0; // Children
+var k = 0; // Infants
+
+function getTotal() {
+    return i + j + k;
+}
 
 $('.btn-add').on('click touchstart', function () {
-    const value = ++i;
-    $('.pcount').text(`${value}`);
-    addValue(value);
+    if (getTotal() < 6) {
+        const value = ++i;
+        $('.pcount').text(`${value}`);
+        addValue(getTotal());
+        $('.errormsg').text("");
+    } else {
+        $('.errormsg').text("Maximum of 6 total passengers allowed.");
+
+    }
     event.stopPropagation();
     event.preventDefault();
 });
-
 
 $('.btn-subtract').on('click touchstart', function () {
-    if (i == 1) {
-        $('.pcount').text(1);
-        addValue(1);
-
-    } else {
+    if (i > 1) {
         const value = --i;
         $('.pcount').text(`${value}`);
-        addValue(value);
+        addValue(getTotal());
+    } else {
+        $('.pcount').text(1);
+        addValue(getTotal());
     }
     event.stopPropagation();
     event.preventDefault();
 });
-
 
 $('.btn-add-c').on('click touchstart', function () {
-    const value = ++i;
-    $('.ccount').text(`${value}`);
-    addValue(value);
+    if (j < 5 && getTotal() < 6) {
+        const value = ++j;
+        $('.ccount').text(`${value}`);
+        addValue(getTotal());
+        $('.errormsg').text("");
+    }  else {
+        $('.errormsg').text("Maximum of 6 total passengers allowed.");
+    }
     event.stopPropagation();
     event.preventDefault();
 });
-
 
 $('.btn-subtract-c').on('click touchstart', function () {
-    if (i == 1) {
-        $('.ccount').text(1);
-        addValue(1);
-    } else {
-        const value = --i;
+    if (j > 0) {
+        const value = --j;
         $('.ccount').text(`${value}`);
-        addValue(value);
+        addValue(getTotal());
     }
     event.stopPropagation();
     event.preventDefault();
 });
-
-
 
 $('.btn-add-in').on('click touchstart', function () {
-    const value = ++i;
-    $('.incount').text(`${value}`);
-    addValue(value);
-    event.stopPropagation();
-    event.preventDefault();
-});
-
-
-$('.btn-subtract-in').on('click touchstart', function () {
-    if (i == 1) {
-        $('.incount').text(1);
-        addValue(1);
-    } else {
-        const value = --i;
+    if (k < 2 && getTotal() < 6) {
+        const value = ++k;
         $('.incount').text(`${value}`);
-        addValue(value);
+        addValue(getTotal());
+        $('.errormsg').text("");
+    } else {
+        $('.errormsg').text("Maximum of 6 total passengers allowed.");
     }
     event.stopPropagation();
     event.preventDefault();
 });
+
+$('.btn-subtract-in').on('click touchstart', function () {
+    if (k > 0) {
+        const value = --k;
+        $('.incount').text(`${value}`);
+        addValue(getTotal());
+    }
+    event.stopPropagation();
+    event.preventDefault();
+})
 
 
 

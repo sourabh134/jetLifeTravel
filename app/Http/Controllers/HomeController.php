@@ -194,6 +194,7 @@ class HomeController extends Controller
                             'PassengerType' => $fare['PassengerTypeQuantity']['Code'],
                             'Quantity' => $fare['PassengerTypeQuantity']['Quantity'],
                             'BaseFare' => $fare['PassengerFare']['BaseFare']['Amount'],
+                            'tax' => $fare['PassengerFare']['Taxes'],
                             'TotalFare' => $fare['PassengerFare']['TotalFare']['Amount'],
                             'TotalFarePerPassenger' => $fare['PassengerFare']['TotalFare']['Amount'] / $fare['PassengerTypeQuantity']['Quantity'],
                             'Baggage' => current($fare['Baggage']),
@@ -272,6 +273,15 @@ class HomeController extends Controller
         $fromCityname = current($fromname);
         $toname =  explode(",",$flightReview->to);
         $toCityname = current($toname);
+        if($flightReview->cabinBaggage == "Included"){
+            $cabinbag = 7;
+            $checkedBaggage = intval($flightReview->Baggage) - $cabinbag;
+
+        }else{
+            $cabinbag =$flightReview->cabinBaggage;
+            $checkedBaggage = 0;
+        }
+
 
         //$revalidate = APIService::revalidate($flightReview->flightsession, $flightReview->FareSourceCode);
         $revalidate = [];
@@ -280,7 +290,7 @@ class HomeController extends Controller
         // die;
         $fare_rules = [];
         //if (!empty($revalidate)) {
-            return view('front.review_your_trip',compact('flightReview','revalidate','fare_rules','fromCityname','toCityname'));
+            return view('front.review_your_trip',compact('flightReview','revalidate','fare_rules','fromCityname','toCityname','cabinbag','checkedBaggage'));
         // } else {
         //     return redirect('/');
         // }

@@ -13,6 +13,7 @@
             overflow-y: auto;
             z-index: 999;
         }
+
         .searchlistto {
             position: absolute;
             background: white;
@@ -31,6 +32,12 @@
 
         .search-item:hover {
             background-color: #f0f0f0;
+        }
+
+        .errormsg {
+            text-align: center;
+            color: red;
+
         }
     </style>
 
@@ -57,17 +64,17 @@
 
     <!-- Banner Area -->
     <!-- <section id="home_one_banner">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-lg-12">
-                                    <div class="banner_one_text">
-                                        <h1>Explore the world together</h1>
-                                        <h3>Find awesome flights, hotel, tour, car and packages</h3>
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-12">
+                                        <div class="banner_one_text">
+                                            <h1>Explore the world together</h1>
+                                            <h3>Find awesome flights, hotel, tour, car and packages</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section> -->
+                        </section> -->
     <!-- Banner Area -->
     <section id="home_six_banner">
         <div class="home_six_banner_slider_wrapper owl-carousel owl-theme">
@@ -177,7 +184,8 @@
                                                         city</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <select name="flightclass" id="flightclass" onchange="updateClassName(this)" class="form-select">
+                                                    <select name="flightclass" id="flightclass"
+                                                        onchange="updateClassName(this)" class="form-select">
                                                         <option value="Economy">Economy</option>
                                                         <option value="Premium economy">Premium economy</option>
                                                         <option value="Business class">Business class</option>
@@ -200,7 +208,8 @@
                                                                 <div class="flight_Search_boxed">
                                                                     <p>From</p>
                                                                     <input type="text" class="formplace"
-                                                                        id="formplace" value="" placeholder="Leaving from">
+                                                                        id="formplace" value=""
+                                                                        placeholder="Leaving from">
                                                                     <span>Leaving from</span>
                                                                     <div class="plan_icon_posation">
                                                                         <i class="fas fa-plane-departure"></i>
@@ -238,8 +247,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-3  col-md-6 col-sm-12 col-12">
-                                                                <div
-                                                                    class="flight_Search_boxed dropdown_passenger_area">
+                                                                <div class="flight_Search_boxed dropdown_passenger_area">
                                                                     <p>Passenger, Class </p>
                                                                     <div class="dropdown">
                                                                         <button class="dropdown-toggle final-count"
@@ -249,11 +257,13 @@
                                                                             aria-expanded="false">
                                                                             1 Passenger
                                                                         </button>
+
                                                                         <div class="dropdown-menu dropdown_passenger_info"
                                                                             aria-labelledby="dropdownMenuButton1">
                                                                             <div class="traveller-calulate-persons">
                                                                                 <div class="passengers">
                                                                                     <h6>Passengers</h6>
+                                                                                    <span class="errormsg"></span>
                                                                                     <div class="passengers-types">
                                                                                         <div class="passengers-type">
                                                                                             <div class="text">
@@ -264,53 +274,75 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="button-set">
-                                                                                                <button type="button" class="btn-add">
-                                                                                                    <i class="fas fa-plus"></i>
+                                                                                                <button type="button"
+                                                                                                    class="btn-add">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
                                                                                                 </button>
-                                                                                                <span class="count pcount" id="pcount">1</span>
-                                                                                                <button type="button" class="btn-subtract">
-                                                                                                    <i class="fas fa-minus"></i>
-                                                                                                </button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="passengers-type">
-                                                                                            <div class="text">
-                                                                                                <div class="type-label">
-                                                                                                    <p class="fz14 mb-xs-0"> Children
-                                                                                                    </p><span>2 - Less than 12 yrs</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="button-set">
-                                                                                                <button type="button" class="btn-add-c">
-                                                                                                    <i class="fas fa-plus"></i>
-                                                                                                </button>
-                                                                                                <span class="count ccount" id="ccount">0</span>
-                                                                                                <button type="button" class="btn-subtract-c">
-                                                                                                    <i class="fas fa-minus"></i>
+                                                                                                <span class="count pcount"
+                                                                                                    id="pcount">1</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
                                                                                                 </button>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="passengers-type">
                                                                                             <div class="text">
                                                                                                 <div class="type-label">
-                                                                                                    <p class="fz14 mb-xs-0"> Infant
-                                                                                                    </p><span>Less than 2 yrs</span>
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Children
+                                                                                                    </p><span>2 - Less than
+                                                                                                        12 yrs</span>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="button-set">
-                                                                                                <button type="button" class="btn-add-in">
-                                                                                                    <i class="fas fa-plus"></i>
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
                                                                                                 </button>
-                                                                                                <span class="count incount" id="incount">0</span>
-                                                                                                <button type="button" class="btn-subtract-in">
-                                                                                                    <i class="fas fa-minus"></i>
+                                                                                                <span class="count ccount"
+                                                                                                    id="ccount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Infant
+                                                                                                    </p><span>Less than 2
+                                                                                                        yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-in">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count incount"
+                                                                                                    id="incount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-in">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
                                                                                                 </button>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="cabin-selection mt-0">
-                                                                                    <button type="button"  class="btn commonBtn">Done</button>
+                                                                                    <button type="button"
+                                                                                        class="btn commonBtn">Done</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -319,7 +351,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="top_form_search_button">
-                                                                <button type="button" class="btn btn_theme btn_md oneway_flight_click">Search</button>
+                                                                <button type="button"
+                                                                    class="btn btn_theme btn_md oneway_flight_click">Search</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -559,7 +592,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-3  col-md-6 col-sm-12 col-12">
+                                                                    {{-- <div class="col-lg-3  col-md-6 col-sm-12 col-12">
                                                                         <div
                                                                             class="flight_Search_boxed dropdown_passenger_area">
                                                                             <p>Passenger, Class </p>
@@ -700,7 +733,111 @@
                                                                             </div>
                                                                             <span>Business</span>
                                                                         </div>
+                                                                    </div> --}}
+                                                                    <div class="col-lg-3  col-md-6 col-sm-12 col-12">
+                                                                <div class="flight_Search_boxed dropdown_passenger_area">
+                                                                    <p>Passenger, Class </p>
+                                                                    <div class="dropdown">
+                                                                        <button class="dropdown-toggle final-count"
+                                                                            data-toggle="dropdown" type="button"
+                                                                            id="dropdownMenuButton1"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                            1 Passenger
+                                                                        </button>
+
+                                                                        <div class="dropdown-menu dropdown_passenger_info"
+                                                                            aria-labelledby="dropdownMenuButton1">
+                                                                            <div class="traveller-calulate-persons">
+                                                                                <div class="passengers">
+                                                                                    <h6>Passengers</h6>
+                                                                                    <span class="errormsg"></span>
+                                                                                    <div class="passengers-types">
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p>Adult</p>
+                                                                                                    <span>12+
+                                                                                                        yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count pcount"
+                                                                                                    id="pcount">1</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Children
+                                                                                                    </p><span>2 - Less than
+                                                                                                        12 yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count ccount"
+                                                                                                    id="ccount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Infant
+                                                                                                    </p><span>Less than 2
+                                                                                                        yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-in">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count incount"
+                                                                                                    id="incount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-in">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="cabin-selection mt-0">
+                                                                                    <button type="button"
+                                                                                        class="btn commonBtn">Done</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+                                                                    <span class="changecname">Economy</span>
+                                                                </div>
+                                                            </div>
                                                                 </div>
                                                             </div>
                                                             <div class="multi_city_form">
@@ -744,7 +881,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-3  col-md-6 col-sm-12 col-12">
+                                                                    {{-- <div class="col-lg-3  col-md-6 col-sm-12 col-12">
                                                                         <div
                                                                             class="flight_Search_boxed dropdown_passenger_area">
                                                                             <p>Passenger, Class </p>
@@ -885,7 +1022,111 @@
                                                                             </div>
                                                                             <span>Business</span>
                                                                         </div>
+                                                                    </div> --}}
+                                                                    <div class="col-lg-3  col-md-6 col-sm-12 col-12">
+                                                                <div class="flight_Search_boxed dropdown_passenger_area">
+                                                                    <p>Passenger, Class </p>
+                                                                    <div class="dropdown">
+                                                                        <button class="dropdown-toggle final-count"
+                                                                            data-toggle="dropdown" type="button"
+                                                                            id="dropdownMenuButton1"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                            1 Passenger
+                                                                        </button>
+
+                                                                        <div class="dropdown-menu dropdown_passenger_info"
+                                                                            aria-labelledby="dropdownMenuButton1">
+                                                                            <div class="traveller-calulate-persons">
+                                                                                <div class="passengers">
+                                                                                    <h6>Passengers</h6>
+                                                                                    <span class="errormsg"></span>
+                                                                                    <div class="passengers-types">
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p>Adult</p>
+                                                                                                    <span>12+
+                                                                                                        yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count pcount"
+                                                                                                    id="pcount">1</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Children
+                                                                                                    </p><span>2 - Less than
+                                                                                                        12 yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count ccount"
+                                                                                                    id="ccount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-c">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="passengers-type">
+                                                                                            <div class="text">
+                                                                                                <div class="type-label">
+                                                                                                    <p
+                                                                                                        class="fz14 mb-xs-0">
+                                                                                                        Infant
+                                                                                                    </p><span>Less than 2
+                                                                                                        yrs</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="button-set">
+                                                                                                <button type="button"
+                                                                                                    class="btn-add-in">
+                                                                                                    <i
+                                                                                                        class="fas fa-plus"></i>
+                                                                                                </button>
+                                                                                                <span class="count incount"
+                                                                                                    id="incount">0</span>
+                                                                                                <button type="button"
+                                                                                                    class="btn-subtract-in">
+                                                                                                    <i
+                                                                                                        class="fas fa-minus"></i>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="cabin-selection mt-0">
+                                                                                    <button type="button"
+                                                                                        class="btn commonBtn">Done</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+                                                                    <span class="changecname">Economy</span>
+                                                                </div>
+                                                            </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2897,12 +3138,12 @@
             $('.formplace' + id).val(toplace);
         }
     </script>
-   <script>
-        $(document).ready(function () {
+    <script>
+        $(document).ready(function() {
             const $input = $('#formplace');
             const $searchList = $('.searchlist');
 
-            $input.on('input', function () {
+            $input.on('input', function() {
                 const query = $input.val().trim();
                 $searchList.empty();
 
@@ -2910,21 +3151,26 @@
                     $.ajax({
                         url: "{{ url('/search-airport') }}",
                         method: "POST",
-                        data: JSON.stringify({ searchairport: query }),
+                        data: JSON.stringify({
+                            searchairport: query
+                        }),
                         contentType: "application/json",
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        success: function (data) {
+                        success: function(data) {
                             console.log(data);
 
                             if (Array.isArray(data)) {
                                 data.forEach(item => {
-                                    const displayText = `${item.City},${item.Country} (${item.AirportCode} - ${item.AirportName})`;
-                                    const $div = $('<div class="search-item"></div>').text(displayText);
+                                    const displayText =
+                                        `${item.City},${item.Country} (${item.AirportCode} - ${item.AirportName})`;
+                                    const $div = $('<div class="search-item"></div>')
+                                        .text(displayText);
 
-                                    $div.on('click', function () {
+                                    $div.on('click', function() {
                                         $input.val(displayText);
+                                        $input.attr('title', displayText);
                                         $searchList.empty();
                                     });
 
@@ -2932,7 +3178,7 @@
                                 });
                             }
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             console.error("AJAX error:", error);
                             console.log("Response:", xhr.responseText);
                         }
@@ -2942,11 +3188,11 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             const $input = $('#toplace');
             const $searchList = $('.searchlistto');
 
-            $input.on('input', function () {
+            $input.on('input', function() {
                 const query = $input.val().trim();
                 $searchList.empty();
 
@@ -2954,21 +3200,26 @@
                     $.ajax({
                         url: "{{ url('/search-airport') }}",
                         method: "POST",
-                        data: JSON.stringify({ searchairport: query }),
+                        data: JSON.stringify({
+                            searchairport: query
+                        }),
                         contentType: "application/json",
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        success: function (data) {
+                        success: function(data) {
                             console.log(data);
 
                             if (Array.isArray(data)) {
                                 data.forEach(item => {
-                                    const displayText = `${item.City},${item.Country} (${item.AirportCode} - ${item.AirportName})`;
-                                    const $div = $('<div class="search-item"></div>').text(displayText);
+                                    const displayText =
+                                        `${item.City},${item.Country} (${item.AirportCode} - ${item.AirportName})`;
+                                    const $div = $('<div class="search-item"></div>')
+                                        .text(displayText);
 
-                                    $div.on('click', function () {
+                                    $div.on('click', function() {
                                         $input.val(displayText);
+                                        $input.attr('title', displayText);
                                         $searchList.empty();
                                     });
 
@@ -2976,7 +3227,7 @@
                                 });
                             }
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             console.error("AJAX error:", error);
                             console.log("Response:", xhr.responseText);
                         }
@@ -2986,9 +3237,9 @@
         });
     </script>
     <script>
-        $('.oneway_flight_click').click(function(e){
+        $('.oneway_flight_click').click(function(e) {
             e.preventDefault();
-             // Get input values
+            // Get input values
             const fromInput = $('#formplace').val().trim();
             const match = fromInput.match(/\((\w{3})\s-\s/);
             const fromairportCode = match[1]; // "DEL"
@@ -3002,9 +3253,10 @@
             const adults = parseInt($('#pcount').text()) || 1;
             const children = parseInt($('#ccount').text()) || 0;
             const infants = parseInt($('#incount').text()) || 0;
-            const passengerString = `children:${children > 0 ? `${children}` : '0'},adults:${adults},infantinlap:${infants > 0 ? `${infants}` : '0'}`;
+            const passengerString =
+                `children:${children > 0 ? `${children}` : '0'},adults:${adults},infantinlap:${infants > 0 ? `${infants}` : '0'}`;
             // Final URL
-            const finalURL = `{{url('/Flights-Search')}}?flight-type=on&mode=search&trip=oneway` +
+            const finalURL = `{{ url('/Flights-Search') }}?flight-type=on&mode=search&trip=oneway` +
                 `&leg1=from:${encodeURIComponent(fromairportCode)},to:${encodeURIComponent(toairportCode)},departure:${departureDate},fromType:AIRPORT,toType:AIRPORT` +
                 `&options=cabinclass:${cabinClass}` +
                 `&fromDate=${departureDate}` +
