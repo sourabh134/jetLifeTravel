@@ -32,7 +32,7 @@
         });
     })
 
-    // wow js 
+    // wow js
     new WOW().init();
 
     // Banner Slider
@@ -283,7 +283,7 @@
             }
         }
     });
-    // Home Four Popular Slider 
+    // Home Four Popular Slider
         $('.popular_tours_four_slider').owlCarousel({
         loop: true,
         dots: false,
@@ -311,7 +311,7 @@
             }
         }
     });
-    // Home Four Top Details Slider 
+    // Home Four Top Details Slider
         $('.top_details_four_slider').owlCarousel({
         loop: true,
         dots: false,
@@ -339,7 +339,7 @@
             }
         }
     });
-    // Home Four Testimonials Slider 
+    // Home Four Testimonials Slider
         $('.testimonials_slider_four_wrapper').owlCarousel({
         loop: true,
         dots: true,
@@ -416,7 +416,7 @@
             }
         }
     });
-// Home-five nearby destination slider 
+// Home-five nearby destination slider
     $('.destination_five_slider').owlCarousel({
         loop: true,
         dots: false,
@@ -444,7 +444,7 @@
             }
         }
     });
-// Home-six top tour slider 
+// Home-six top tour slider
     $('.top_tour_six_slider').owlCarousel({
         loop: true,
         dots: true,
@@ -471,7 +471,7 @@
             }
         }
     });
-// Home-eleven top tour slider 
+// Home-eleven top tour slider
     $('.top_tour_eleven_slider').owlCarousel({
         loop: true,
         dots: true,
@@ -498,7 +498,7 @@
             }
         }
     });
-// Home-six news slider 
+// Home-six news slider
     $('.home_six_news_slider_wrapper').owlCarousel({
         loop: true,
         dots: true,
@@ -519,7 +519,7 @@
             }
         }
     });
-// home six testimonial area 
+// home six testimonial area
 
     $('.testimonial-slider-wrapper').owlCarousel({
         loop: true,
@@ -542,7 +542,7 @@
         }
     });
 
-    // home seven trending tour area 
+    // home seven trending tour area
     $('.trending_tour_seven_slider').owlCarousel({
         loop: true,
         dots: true,
@@ -854,11 +854,18 @@ $(document).ready(function() {
         var selectElement = `
             <div class="appendSelect">
                 <select class="form-control bg_input">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value="" selected hidden>Select Age</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
                 </select>
             </div>`;
         $(this).closest('.passengers-type').after(selectElement);

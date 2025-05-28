@@ -61,8 +61,6 @@ class HomeController extends Controller
             // Access the value
             $cabinClass = $optionData['cabinclass'];
             $flightsearchoneway = APIService::flightsearchoneway($journeyType, $departure, $to, $from, $cabinClass, $adults, $children, $infantInLap);
-            // print_r($flightsearchoneway['response']);
-            // die;
             if (!isset($flightsearchoneway['response']['Errors'])) {
                 $totalFlight = $flightsearchoneway['response']['AirSearchResponse']['AirSearchResult']['FareItineraries'];
                 $flightsession = $flightsearchoneway['response']['AirSearchResponse']['session_id'];
