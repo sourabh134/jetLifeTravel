@@ -723,7 +723,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <span class="changecname">Economy</span>
+                                                                            <span class="changecname" id="cabinclassmid">Economy</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -789,7 +789,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="top_form_search_button">
-                                                            <button class="btn btn_theme btn_md">Search</button>
+                                                            <button type="button" class="btn btn_theme btn_md multicity_flight_click">Search</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -937,7 +937,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="top_form_search_button">
-                                                        <button class="btn btn_theme btn_md">Search</button>
+                                                        <button type="button" class="btn btn_theme btn_md">Search</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -2918,6 +2918,75 @@
             window.location.href = finalURL;
 
         })
+    </script>
+    <script>
+        $('.multicity_flight_click').click(function(e) {
+        e.preventDefault();
+
+        // Get passenger counts and class
+        const adults = parseInt($('#pcount').text()) || 1;
+        const children = parseInt($('#ccount').text()) || 0;
+        const infants = parseInt($('#incount').text()) || 0;
+        const cabinClass = $('#cabinclassmid').text().trim().toLowerCase();
+        //const passengerString = `children:${children},adults:${adults},infantinlap:${infants}`;
+        const passengerString =
+                `children:${children > 0 ? `${children}` : '0'},adults:${adults},infantinlap:${infants > 0 ? `${infants}` : '0'}`;
+
+        // Collect all flight segments
+        const segments = [];
+        let isValid = true;
+
+        $('.multi_city_form').each(function(index) {
+            const formNumber = index + 1;
+            const fromInput = $(`#formplacemulti${formNumber}`).val().trim();
+            const toInput = $(`#toplacemulti${formNumber}`).val().trim();
+            const dateInput = $(this).find('.datepickerm').val().trim();
+
+            // Validate inputs
+            if (!fromInput || !toInput || !dateInput) {
+                alert(`Please fill all fields for segment ${formNumber}`);
+                isValid = false;
+                return false; // break out of the each loop
+            }
+
+            // Extract airport codes
+            const fromMatch = fromInput.match(/\((\w{3})\s-\s/);
+            const toMatch = toInput.match(/\((\w{3})\s-\s/);
+
+            if (!fromMatch || !toMatch) {
+                alert(`Please select valid airports for segment ${formNumber}`);
+                isValid = false;
+                return false;
+            }
+
+            const fromCode = fromMatch[1];
+            const toCode = toMatch[1];
+
+            // Format date as DD/MM/YYYY
+            const dateParts = dateInput.split(' ');
+            const formattedDate = `${dateParts[0]}/${dateParts[1]}/${dateParts[2]}`;
+
+            segments.push({
+                from: fromCode,
+                to: toCode,
+                date: formattedDate,
+                fromName: fromInput,
+                toName: toInput
+            });
+        });
+
+        if (!isValid) return;
+        console.log(segments);
+        const encodedSegments = encodeURIComponent(JSON.stringify(segments));
+
+        // Build the URL with all segments
+        let finalURL = `{{ url('/Flights-Search-Multicity') }}?flight-type=on&mode=search&trip=multicity&leg=${encodedSegments}&options=cabinclass:${cabinClass}&passengers=${passengerString}`;
+        console.log(finalURL);
+
+        // Redirect to search results
+        //window.location.href = finalURL;
+    });
+
     </script>
     <script>
         $(document).ready(function() {

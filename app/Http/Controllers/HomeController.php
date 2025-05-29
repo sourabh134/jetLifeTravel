@@ -261,22 +261,60 @@ class HomeController extends Controller
         return view('front.flight-search-result', compact('flightSearch', 'from', 'to', 'airlineStats', 'stopStats', 'refundStats'));
     }
 
+    public function flightSearchResultMultiplecity(Request $request)
+    {
+        //echo "<pre>";
+        $legJson = $request->leg;
+        $options = $request->options;
+        $passengers = $request->passengers;
+        // print_r($passengers);
+        // die;
+        $passengerData = [];
+        foreach (explode(',', $passengers) as $item) {
+            $parts = explode(':', $item);
+            if (count($parts) === 2) {
+                [$key, $value] = $parts;
+                $passengerData[$key] = (int)$value;
+            } else {
+                // Handle keys without a value, e.g., set to 0 or null
+                $passengerData[$parts[0]] = 0;
+            }
+        }
+
+        // Access values
+        $adults = $passengerData['adults'];       // 1
+        $children = $passengerData['children'];   // 1
+        $infantInLap = $passengerData['infantinlap']; // 0
+        $optionData = [];
+        [$key, $value] = explode(':', $options);
+        $optionData[$key] = $value;
+        // Access the value
+        $cabinClass = $optionData['cabinclass'];
+        //die;
+        // $legJson = $request->leg;
+        // $legJson = $request->leg;
+        // $leg = json_decode($legJson, true);
+        // echo count($leg);
+        // print_r($leg);
+        $multiplecity = APIService::flightsearchmultiplecity($legJson, $cabinClass, $adults, $children, $infantInLap);
+        print_r($multiplecity);
+    }
+
     public function reviewflight(Request $request)
     {
         $flightReview = json_decode(base64_decode($request->key));
         // echo "<pre>";
         // print_r($flightReview);
         // die;
-        $fromname =  explode(",",$flightReview->from);
+        $fromname =  explode(",", $flightReview->from);
         $fromCityname = current($fromname);
-        $toname =  explode(",",$flightReview->to);
+        $toname =  explode(",", $flightReview->to);
         $toCityname = current($toname);
-        if($flightReview->cabinBaggage == "Included"){
+        if ($flightReview->cabinBaggage == "Included") {
             $cabinbag = 7;
             $checkedBaggage = intval($flightReview->Baggage) - $cabinbag;
-
-        }else{
-            $cabinbag =$flightReview->cabinBaggage;
+        } else {
+            $cabinbag = $flightReview->cabinBaggage;
             $checkedBaggage = 0;
         }
 
@@ -288,7 +326,7 @@ class HomeController extends Controller
         // die;
         $fare_rules = [];
         //if (!empty($revalidate)) {
-            return view('front.review_your_trip',compact('flightReview','revalidate','fare_rules','fromCityname','toCityname','cabinbag','checkedBaggage'));
+        return view('front.review_your_trip', compact('flightReview', 'revalidate', 'fare_rules', 'fromCityname', 'toCityname', 'cabinbag', 'checkedBaggage'));
         // } else {
         //     return redirect('/');
         // }
